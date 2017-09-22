@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F40-kA-uHr">
+                                <rect key="frame" x="10" y="209" width="300" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-k4-KX2">
+                                        <rect key="frame" x="50" y="15" width="200" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Gtu-Du-wur"/>
+                                            <constraint firstAttribute="height" constant="65" id="Ju2-t7-44g"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vechicle Buzzzz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-2K-0fj">
+                                        <rect key="frame" x="10" y="100" width="280" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9wz-Cm-B1n"/>
+                                            <constraint firstAttribute="width" constant="280" id="BIi-WM-66w"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dgX-2K-0fj" firstAttribute="centerX" secondItem="F40-kA-uHr" secondAttribute="centerX" id="Czo-4b-Gi6"/>
+                                    <constraint firstItem="OQt-k4-KX2" firstAttribute="centerX" secondItem="F40-kA-uHr" secondAttribute="centerX" id="YvM-Kn-cKE"/>
+                                    <constraint firstAttribute="bottom" secondItem="dgX-2K-0fj" secondAttribute="bottom" id="ZZY-Xe-efc"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgX-2K-0fj" secondAttribute="trailing" constant="10" id="fbr-DB-fMg"/>
+                                    <constraint firstItem="dgX-2K-0fj" firstAttribute="top" secondItem="OQt-k4-KX2" secondAttribute="bottom" constant="20" id="k5N-G9-kdV"/>
+                                    <constraint firstItem="OQt-k4-KX2" firstAttribute="top" secondItem="F40-kA-uHr" secondAttribute="top" constant="15" id="mHA-Fo-zFc"/>
+                                    <constraint firstAttribute="width" constant="300" id="n99-q5-6VQ"/>
+                                    <constraint firstAttribute="height" constant="150" id="uZq-Nf-F3Q"/>
+                                    <constraint firstItem="dgX-2K-0fj" firstAttribute="leading" secondItem="F40-kA-uHr" secondAttribute="leading" constant="10" id="vfi-p6-vQx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0078431372550000003" green="0.46666666670000001" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F40-kA-uHr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Z5W-oo-GZV"/>
+                            <constraint firstItem="F40-kA-uHr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ZdF-lt-XqT"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.799999999999997" y="374.21289355322341"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo.png" width="579" height="278"/>
+    </resources>
+</document>
