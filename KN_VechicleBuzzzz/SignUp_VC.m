@@ -12,7 +12,8 @@
 
 @property UIPickerView * statePickerView;
 
-@property NSMutableArray * StatesNames;
+@property NSMutableArray * StatesNamesArr;
+@property NSString *stateNameId;
 @end
 
 @implementation SignUp_VC
@@ -31,6 +32,8 @@
     self.statePickerView.showsSelectionIndicator = YES;
     self.stateName.inputView = self.statePickerView;
     //
+    
+    [self gettingStatesNames];
     
 }
 
@@ -57,16 +60,25 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     //Return the number of rows in the component
-    return 1;
+    return self.StatesNamesArr.count;
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    //return [dataSource objectAtIndex:row];
-    return @"Nil";
+    
+    
+    return [[self.StatesNamesArr objectAtIndex:row]valueForKey:@"state"];
+    //return @"Nil";
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+   
+    self.stateName.text = [[self.StatesNamesArr objectAtIndex:row]valueForKey:@"state"];
+    self.stateNameId = [[self.StatesNamesArr objectAtIndex:row]valueForKey:@"id"];
     
+    NSLog(@"%@",self.stateNameId);
+    
+    [[self view] endEditing:YES];
+
 }
 
 
@@ -186,7 +198,7 @@
     
     if (textField==self.eMailTFT)
     {
-        if (self.eMailTFT.text.length>3 && self.eMailTFT.text.length>10)
+        if (self.eMailTFT.text.length>3 && self.eMailTFT.text.length<=15)
         {
             return YES;
         }
@@ -315,17 +327,68 @@
 }
 
 
+-(void)gettingStatesNames
+{
+    
+   [self.manager POST:@"http://www.vehiclebuzzzz.com/index.php/JsonController/state" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
+        
+        self.StatesNamesArr = [responseObject valueForKey:@"server_stateresponse"];
+        NSLog(@"%@",self.StatesNamesArr );
+    
+    }
+    
+    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       
+              }];
+    
+}
 
 -(void)registration
 {
     
+    NSString * signUpURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/signup";
     
     
+    NSDictionary * paramaDict = @{@"first_name":self.userTFT.text,
+                                  @"email":self.eMailTFT.text,
+                                  @"phone":self.phoneTFT.text,
+                                  @"state":self.stateNameId,
+                                  @"city":self.cityNameTFT.text,
+                                  @"password":self.passwordTFT.text,
+                                  @"cnfpassword":self.cnfPasswordTFT.text};
+    
+    [self.manager POST:signUpURL parameters:paramaDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     {
+        
+         NSLog(@"%@",responseObject);
+     
+     }
+    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+     {
+        
+    }];
+    
+    
+    
+
 }
 
 
 - (IBAction)createAccountButton:(id)sender
 {
+    if (self.userTFT.text>0 && self.eMailTFT.text>0 && self.phoneTFT.text>0 && self.passwordTFT.text>0 && self.cnfPasswordTFT.text>0 && self.cityNameTFT.text >0 && self.stateName.text>0 )
+    {
+        
+        [self registration];
+        
+        
+    }
+    else
+    {
+        [self alertMessage:@"Enter All Fields !"];
+    }
+   
     
     
 }

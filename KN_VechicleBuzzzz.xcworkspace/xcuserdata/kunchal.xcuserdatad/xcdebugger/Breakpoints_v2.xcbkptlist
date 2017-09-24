@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KN_VechicleBuzzzz/SignUp_VC.m"
-            timestampString = "527690663.104696"
+            timestampString = "527953189.066059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-textfieldshouldreturn:"
-            landmarkType = "7">
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "@implementation SignUp_VC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KN_VechicleBuzzzz/SignUp_VC.m"
-            timestampString = "527690663.104696"
+            timestampString = "527953189.066059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-textFieldShouldBeginEditing:"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-textfieldshouldreturn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
