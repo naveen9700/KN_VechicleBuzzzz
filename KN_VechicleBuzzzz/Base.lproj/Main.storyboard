@@ -619,6 +619,72 @@
             </objects>
             <point key="canvasLocation" x="2024.6376811594205" y="122.28260869565219"/>
         </scene>
+        <!--Home ScreenVC-->
+        <scene sceneID="skd-Ap-Moq">
+            <objects>
+                <viewController storyboardIdentifier="homeScreen_VC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kkw-cz-pvd" customClass="homeScreen_VC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9pR-F7-8jT"/>
+                        <viewControllerLayoutGuide type="bottom" id="ei3-yE-6Og"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ziH-c1-i8d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ger-0A-HpD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="CZL-wW-6ad">
+                                        <rect key="frame" x="20" y="8" width="50" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="oqL-kc-Gaw"/>
+                                            <constraint firstAttribute="height" constant="40" id="wy3-Tr-oHg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vechiclebuzzzz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7c-o5-xbQ">
+                                        <rect key="frame" x="77" y="8" width="166" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lik-CV-oxW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fda-su-qT7">
+                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13489548466716439" green="0.41004642728223339" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fda-su-qT7" secondAttribute="bottom" id="B1X-fn-OnL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z7c-o5-xbQ" secondAttribute="trailing" constant="77" id="BsC-1u-V9J"/>
+                                    <constraint firstItem="fda-su-qT7" firstAttribute="leading" secondItem="ger-0A-HpD" secondAttribute="leading" id="DY6-rp-qK0"/>
+                                    <constraint firstItem="Z7c-o5-xbQ" firstAttribute="leading" secondItem="CZL-wW-6ad" secondAttribute="trailing" constant="7" id="Lqn-27-Acd"/>
+                                    <constraint firstAttribute="trailing" secondItem="fda-su-qT7" secondAttribute="trailing" id="Oll-H2-m9T"/>
+                                    <constraint firstItem="CZL-wW-6ad" firstAttribute="top" secondItem="ger-0A-HpD" secondAttribute="top" constant="8" id="gNS-kV-9g5"/>
+                                    <constraint firstItem="fda-su-qT7" firstAttribute="top" secondItem="Z7c-o5-xbQ" secondAttribute="bottom" constant="8" id="iMu-I8-n9C"/>
+                                    <constraint firstAttribute="height" constant="100" id="kfN-LZ-h5f"/>
+                                    <constraint firstItem="Z7c-o5-xbQ" firstAttribute="top" secondItem="ger-0A-HpD" secondAttribute="top" constant="8" id="n3u-5k-SE6"/>
+                                    <constraint firstItem="CZL-wW-6ad" firstAttribute="leading" secondItem="ger-0A-HpD" secondAttribute="leading" constant="20" id="xyX-Ae-HJW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ger-0A-HpD" secondAttribute="trailing" id="BBl-1q-NAk"/>
+                            <constraint firstItem="ger-0A-HpD" firstAttribute="top" secondItem="ziH-c1-i8d" secondAttribute="top" id="Qfl-BP-D4d"/>
+                            <constraint firstItem="ger-0A-HpD" firstAttribute="leading" secondItem="ziH-c1-i8d" secondAttribute="leading" id="kng-zB-t8Q"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="he6-dr-5cd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734.7826086956525" y="83.967391304347828"/>
+        </scene>
     </scenes>
     <resources>
         <image name="925891-128.png" width="128" height="128"/>

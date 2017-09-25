@@ -3,6 +3,7 @@
 #import "loginScreen.h"
 #import "Afnetwork_VC.h"
 #import "AFNETWORK_model.h"
+#import "homeScreen_VC.h"
 
 
 @interface loginScreen ()<UITextFieldDelegate>
@@ -63,17 +64,17 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     
-    if (textField==self.pswrdTFObject)
-    {
-        if (self.userTFObject.text.length==0)
-        {
-            [self alertMessage:@"Enter UserName First !"];
-            return YES;
-        }
-    }
-    else{
-        return YES;
-    }
+//    if (textField==self.pswrdTFObject)
+//    {
+//        if (self.userTFObject.text.length==0)
+//        {
+//            [self alertMessage:@"Enter UserName First !"];
+//            return YES;
+//        }
+//    }
+//    else{
+//        return YES;
+//    }
     return YES;
 }
 
@@ -154,9 +155,27 @@
         
     [self.manager POST:loginURL parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
-            NSLog(@"%@",responseObject);
-
+            NSLog(@"%@",[[responseObject valueForKey:@"server_response"]valueForKey:@"state"]);
         
+        NSMutableArray * response = [responseObject valueForKey:@"server_response"];
+
+        if ([[[response objectAtIndex:0]valueForKey:@"state"] isEqualToString:@"0"] || [[[response objectAtIndex:0]valueForKey:@"state"] isEqualToString:@"1"])
+        {
+            NSString * storyboardName = @"Main";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+homeScreen_VC * vc = [storyboard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
+            [self presentViewController:vc animated:YES completion:nil];
+            
+            
+        }
+        
+        else{
+            
+            self.userTFObject.text = @"";
+            self.pswrdTFObject.text = @"";
+            [self.userTFObject becomeFirstResponder];
+            [self alertMessage:@"Login Failed !"];
+        }
         }
     
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)

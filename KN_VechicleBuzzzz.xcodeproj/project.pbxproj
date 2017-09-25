@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F03ED731F7929D900267751 /* homeScreen_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED721F7929D900267751 /* homeScreen_VC.m */; };
+		0F03ED741F7929D900267751 /* homeScreen_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED721F7929D900267751 /* homeScreen_VC.m */; };
+		0F03ED751F7929D900267751 /* homeScreen_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED721F7929D900267751 /* homeScreen_VC.m */; };
+		0F03ED781F79321F00267751 /* SRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED771F79321F00267751 /* SRCarouselView.m */; };
+		0F03ED791F79321F00267751 /* SRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED771F79321F00267751 /* SRCarouselView.m */; };
+		0F03ED7A1F79321F00267751 /* SRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED771F79321F00267751 /* SRCarouselView.m */; };
 		0F91271F1F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F9127201F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F9127211F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
@@ -84,6 +90,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F03ED711F7929D900267751 /* homeScreen_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeScreen_VC.h; sourceTree = "<group>"; };
+		0F03ED721F7929D900267751 /* homeScreen_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeScreen_VC.m; sourceTree = "<group>"; };
+		0F03ED761F79321F00267751 /* SRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCarouselView.h; sourceTree = "<group>"; };
+		0F03ED771F79321F00267751 /* SRCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCarouselView.m; sourceTree = "<group>"; };
 		0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_map_746308.png; sourceTree = "<group>"; };
 		0FBE48031F74214000CF6DE0 /* AFNETWORK_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNETWORK_model.h; sourceTree = "<group>"; };
 		0FBE48041F74214000CF6DE0 /* AFNETWORK_model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNETWORK_model.m; sourceTree = "<group>"; };
@@ -153,6 +163,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F03ED701F79298200267751 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F03ED761F79321F00267751 /* SRCarouselView.h */,
+				0F03ED771F79321F00267751 /* SRCarouselView.m */,
+				0F03ED711F7929D900267751 /* homeScreen_VC.h */,
+				0F03ED721F7929D900267751 /* homeScreen_VC.m */,
+			);
+			name = HomeScreen;
+			sourceTree = "<group>";
+		};
 		898493EA844A129CF23C558E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +222,7 @@
 				0FBE48031F74214000CF6DE0 /* AFNETWORK_model.h */,
 				0FBE48041F74214000CF6DE0 /* AFNETWORK_model.m */,
 				9BDC011A1F66950300E4C282 /* LoginScreen */,
+				0F03ED701F79298200267751 /* HomeScreen */,
 				9BDC01151F668AFF00E4C282 /* Images */,
 				9BDC00E21F6689C000E4C282 /* AppDelegate.h */,
 				9BDC00E31F6689C000E4C282 /* AppDelegate.m */,
@@ -501,10 +523,12 @@
 				9B62B3351F6952D200ADF507 /* SignUp_VC.m in Sources */,
 				9BDC00ED1F6689C000E4C282 /* KN_VechicleBuzzzz.xcdatamodeld in Sources */,
 				9BDC011D1F6696D000E4C282 /* loginScreen.m in Sources */,
+				0F03ED781F79321F00267751 /* SRCarouselView.m in Sources */,
 				9BDC00E71F6689C000E4C282 /* ViewController.m in Sources */,
 				9BDC00E41F6689C000E4C282 /* AppDelegate.m in Sources */,
 				0FBE48051F74214000CF6DE0 /* AFNETWORK_model.m in Sources */,
 				9B8F04A91F6A915E00253AF9 /* Afnetwork_VC.m in Sources */,
+				0F03ED731F7929D900267751 /* homeScreen_VC.m in Sources */,
 				9BDC00E11F6689C000E4C282 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +540,8 @@
 				9B62B3361F6952D200ADF507 /* SignUp_VC.m in Sources */,
 				9BDC00FD1F6689C000E4C282 /* KN_VechicleBuzzzzTests.m in Sources */,
 				9BDC011E1F6696D000E4C282 /* loginScreen.m in Sources */,
+				0F03ED791F79321F00267751 /* SRCarouselView.m in Sources */,
+				0F03ED741F7929D900267751 /* homeScreen_VC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +552,8 @@
 				9B62B3371F6952D200ADF507 /* SignUp_VC.m in Sources */,
 				9BDC01081F6689C000E4C282 /* KN_VechicleBuzzzzUITests.m in Sources */,
 				9BDC011F1F6696D000E4C282 /* loginScreen.m in Sources */,
+				0F03ED7A1F79321F00267751 /* SRCarouselView.m in Sources */,
+				0F03ED751F7929D900267751 /* homeScreen_VC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
