@@ -166,13 +166,13 @@
     [self addSubview:_scrollView];
     
     _currentImageView = [[UIImageView alloc] init];
-    _currentImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _currentImageView.contentMode = UIViewContentModeScaleAspectFit;
     _currentImageView.userInteractionEnabled = YES;
     [_currentImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCurrentImageView)]];
     [_scrollView addSubview:_currentImageView];
     
     _nextImageView = [[UIImageView alloc] init];
-    _nextImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _nextImageView.contentMode = UIViewContentModeScaleAspectFit;
     [_scrollView addSubview:_nextImageView];
     
     _pageControl = [[UIPageControl alloc] init];
