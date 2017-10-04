@@ -712,10 +712,82 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhr-cA-Fwv">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-Ge-lRu">
+                                                <rect key="frame" x="0.0" y="150" width="320" height="288"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="288" id="Itd-5S-hdg"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customTableCell" rowHeight="160" id="wT0-7u-nqX" customClass="customTableCell">
+                                                        <rect key="frame" x="0.0" y="28" width="320" height="160"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wT0-7u-nqX" id="mHp-bD-wS5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OKA-kv-uvv">
+                                                                    <rect key="frame" x="8" y="0.0" width="304" height="152"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ssh-hb-6SH">
+                                                                        <size key="itemSize" width="122" height="144"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                    <cells>
+                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="customCollectionCell" id="1xy-eh-mRh" customClass="customCollectionCell">
+                                                                            <rect key="frame" x="0.0" y="4" width="122" height="144"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="122" height="144"/>
+                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                                <subviews>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bu1-16-lVq">
+                                                                                        <rect key="frame" x="5" y="8" width="111" height="93"/>
+                                                                                    </imageView>
+                                                                                </subviews>
+                                                                            </view>
+                                                                            <constraints>
+                                                                                <constraint firstItem="bu1-16-lVq" firstAttribute="top" secondItem="1xy-eh-mRh" secondAttribute="top" constant="8" id="dFi-60-sP4"/>
+                                                                                <constraint firstItem="bu1-16-lVq" firstAttribute="leading" secondItem="1xy-eh-mRh" secondAttribute="leading" constant="5" id="dg7-vT-RCh"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="bu1-16-lVq" secondAttribute="bottom" constant="43" id="fdG-cA-KIc"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="bu1-16-lVq" secondAttribute="trailing" constant="6" id="kbn-nD-Iw2"/>
+                                                                            </constraints>
+                                                                            <connections>
+                                                                                <outlet property="collectionImage" destination="bu1-16-lVq" id="MMx-V2-gpB"/>
+                                                                            </connections>
+                                                                        </collectionViewCell>
+                                                                    </cells>
+                                                                </collectionView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="OKA-kv-uvv" secondAttribute="trailing" constant="8" id="Smc-Ft-r0J"/>
+                                                                <constraint firstItem="OKA-kv-uvv" firstAttribute="leading" secondItem="mHp-bD-wS5" secondAttribute="leading" constant="8" id="Ss0-O0-7y9"/>
+                                                                <constraint firstItem="OKA-kv-uvv" firstAttribute="top" secondItem="mHp-bD-wS5" secondAttribute="top" id="g0K-2f-llL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="OKA-kv-uvv" secondAttribute="bottom" constant="7.6699999999999999" id="nf7-uB-xBV"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="homeCollectionObj" destination="OKA-kv-uvv" id="J5w-Iu-coH"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="kkw-cz-pvd" id="TEg-k7-Jsf"/>
+                                                    <outlet property="delegate" destination="kkw-cz-pvd" id="yWU-h1-qPC"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="1eF-Cq-k5n"/>
                                             <constraint firstAttribute="height" constant="438" id="6CR-jx-U6n"/>
+                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="centerX" secondItem="Mhr-cA-Fwv" secondAttribute="centerX" id="8N5-aL-avT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ine-Ge-lRu" secondAttribute="trailing" id="Ih1-DI-6If"/>
+                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="leading" secondItem="Mhr-cA-Fwv" secondAttribute="leading" id="W1c-Qc-uxD"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ine-Ge-lRu" secondAttribute="bottom" id="wnE-9H-lFV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -743,6 +815,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="homeScreenTableObj" destination="Ine-Ge-lRu" id="HAz-tc-k5M"/>
                         <outlet property="scrollViewObj" destination="TV9-A8-c37" id="tKN-zg-aDS"/>
                     </connections>
                 </viewController>
