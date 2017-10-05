@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionObj;
 
 @property NSMutableArray * productDtlsCollectionArray;
+@property NSMutableArray * singleProductArray;
 @property NSInteger tableSection;
 @end

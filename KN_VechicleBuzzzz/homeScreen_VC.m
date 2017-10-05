@@ -154,6 +154,7 @@
     
     customTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell"];
     cell.productDtlsCollectionArray = self.productDtlsArray;
+    cell.singleProductArray = [self.productDtlsArray objectAtIndex:indexPath.section];
     cell.tableSection = indexPath.section;
     NSLog(@"%lu",indexPath.section);
     return cell;

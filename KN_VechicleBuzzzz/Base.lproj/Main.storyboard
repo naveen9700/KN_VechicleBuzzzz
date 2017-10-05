@@ -716,9 +716,6 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ine-Ge-lRu">
                                                 <rect key="frame" x="0.0" y="150" width="320" height="288"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="288" id="Itd-5S-hdg"/>
-                                                </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customTableCell" rowHeight="160" id="wT0-7u-nqX" customClass="customTableCell">
                                                         <rect key="frame" x="0.0" y="28" width="320" height="160"/>
@@ -782,21 +779,22 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="1eF-Cq-k5n"/>
-                                            <constraint firstAttribute="height" constant="438" id="6CR-jx-U6n"/>
-                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="centerX" secondItem="Mhr-cA-Fwv" secondAttribute="centerX" id="8N5-aL-avT"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ine-Ge-lRu" secondAttribute="trailing" id="Ih1-DI-6If"/>
-                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="leading" secondItem="Mhr-cA-Fwv" secondAttribute="leading" id="W1c-Qc-uxD"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ine-Ge-lRu" secondAttribute="bottom" id="wnE-9H-lFV"/>
+                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="top" secondItem="Mhr-cA-Fwv" secondAttribute="top" constant="150" id="2MZ-E7-YxC"/>
+                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="centerX" secondItem="Mhr-cA-Fwv" secondAttribute="centerX" id="F9F-uS-MTf"/>
+                                            <constraint firstItem="Ine-Ge-lRu" firstAttribute="leading" secondItem="Mhr-cA-Fwv" secondAttribute="leading" id="GvT-Im-XaF"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ine-Ge-lRu" secondAttribute="bottom" id="Nqy-6s-5LC"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ine-Ge-lRu" secondAttribute="trailing" id="YVQ-g4-9SA"/>
+                                            <constraint firstAttribute="width" constant="320" id="nJa-cG-IF9"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Mhr-cA-Fwv" secondAttribute="bottom" id="1cv-zo-pwG"/>
-                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="leading" secondItem="TV9-A8-c37" secondAttribute="leading" id="g9C-Nn-LwT"/>
-                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="top" secondItem="TV9-A8-c37" secondAttribute="top" id="hXN-bx-Y2A"/>
-                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="centerX" secondItem="TV9-A8-c37" secondAttribute="centerX" id="htQ-Af-CTc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mhr-cA-Fwv" secondAttribute="trailing" id="zo6-UK-fSb"/>
+                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="leading" secondItem="TV9-A8-c37" secondAttribute="leading" id="2b0-fo-p5A"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mhr-cA-Fwv" secondAttribute="bottom" id="6PI-ub-GAS"/>
+                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="top" secondItem="TV9-A8-c37" secondAttribute="top" id="KyN-gW-nHq"/>
+                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="centerY" secondItem="TV9-A8-c37" secondAttribute="centerY" id="PGc-pc-CzM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mhr-cA-Fwv" secondAttribute="trailing" id="YhP-GM-cxb"/>
+                                    <constraint firstItem="Mhr-cA-Fwv" firstAttribute="centerX" secondItem="TV9-A8-c37" secondAttribute="centerX" id="bUj-cZ-hrB"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
