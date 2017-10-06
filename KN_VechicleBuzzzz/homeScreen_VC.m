@@ -157,6 +157,7 @@
     cell.singleProductArray = [self.productDtlsArray objectAtIndex:indexPath.section];
     cell.tableSection = indexPath.section;
     NSLog(@"%lu",indexPath.section);
+    [cell.homeCollectionObj reloadData];
     return cell;
     
 }
