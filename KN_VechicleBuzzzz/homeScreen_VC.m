@@ -26,6 +26,12 @@
     self.productDtlsArray = [[NSMutableArray alloc]init];
     
     
+  
+
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
     NSString * homeURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/homepage";
     
     self.manager = [AFHTTPSessionManager manager];
@@ -36,16 +42,12 @@
          NSLog(@"%@",_homeResponseDict);
          [self carouselViewWithLocalImages];
          self.serverResponse = responseObject;
-//         NSLog(@"%@",[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:0]valueForKey:@"category"]);
-         // NSLog(@"%@",responseObject);
-         
          [self tableViewDataReloading];
          
-    }
-    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-
+     }
+              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  
+              }];
     
 }
 
@@ -101,8 +103,6 @@
             
             [self.productDtlsArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"product_dtls"]];
             
-            //NSLog(@"%@",[[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"product_dtls"]objectAtIndex:0]);
-            
             
         }
         
@@ -145,8 +145,23 @@
 {
     
     
-    return 60.0;
+    return 40.0;
     
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    headerView.backgroundColor = [UIColor blueColor];
+    
+    UIButton * headerBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+    headerBtn.backgroundColor = [UIColor clearColor];
+    headerBtn.opaque = NO;
+    headerBtn.frame = CGRectMake(self.view.frame.size.width-120, 5, 100.0, 30.0);
+    [headerBtn setTitle:@"View All" forState:UIControlStateNormal];
+    [headerBtn addTarget:self action:@selector(ActionEventForHeaderButton:) forControlEvents:UIControlEventTouchUpInside];
+    [headerView addSubview:headerBtn];
+    
+    return headerView;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -161,6 +176,14 @@
     return cell;
     
 }
+
+-(void)ActionEventForHeaderButton:(id)sender
+{
+    
+    
+    NSLog(@"button pressed");
+}
+
 
 
 
