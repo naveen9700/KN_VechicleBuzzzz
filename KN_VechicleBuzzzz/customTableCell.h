@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "customCollectionCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface customTableCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>

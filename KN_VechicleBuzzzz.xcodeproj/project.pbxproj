@@ -16,6 +16,7 @@
 		0F91271F1F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F9127201F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F9127211F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
+		0F98B9771F891C7E00ECD209 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F98B9761F891C7E00ECD209 /* QuartzCore.framework */; };
 		0FAA59441F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
 		0FAA59451F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
 		0FAA59461F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
@@ -101,6 +102,7 @@
 		0F03ED761F79321F00267751 /* SRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCarouselView.h; sourceTree = "<group>"; };
 		0F03ED771F79321F00267751 /* SRCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCarouselView.m; sourceTree = "<group>"; };
 		0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_map_746308.png; sourceTree = "<group>"; };
+		0F98B9761F891C7E00ECD209 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0FAA59421F850DEA00788A45 /* customTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customTableCell.h; sourceTree = "<group>"; };
 		0FAA59431F850DEA00788A45 /* customTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTableCell.m; sourceTree = "<group>"; };
 		0FAA59471F850F6F00788A45 /* customCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customCollectionCell.h; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F98B9771F891C7E00ECD209 /* QuartzCore.framework in Frameworks */,
 				58D828CAA6ECC8FDA575F4F9 /* libPods-KN_VechicleBuzzzz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +203,7 @@
 		97722B4DD093C8DF5BC25C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F98B9761F891C7E00ECD209 /* QuartzCore.framework */,
 				4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */,
 			);
 			name = Frameworks;

@@ -11,6 +11,9 @@
 
 @interface homeScreen_VC () <SRCarouselViewDelegate>
 
+@property  UIView* headerView;
+@property  UILabel *sectionHeaderLabel;
+@property UIButton * headerBtn;
 
 
 @property SRCarouselView *carouselView;
@@ -24,10 +27,6 @@
     self.headersArray = [[NSMutableArray alloc]init];
     
     self.productDtlsArray = [[NSMutableArray alloc]init];
-    
-    
-  
-
     
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -150,18 +149,33 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
-    headerView.backgroundColor = [UIColor blueColor];
+    // intializing the custom header view for Table view
+    self. headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.homeScreenTableObj.frame.size.width, 40)];
+    self.headerView.backgroundColor = [UIColor blueColor ];
     
-    UIButton * headerBtn = [[UIButton alloc] initWithFrame:CGRectZero];
-    headerBtn.backgroundColor = [UIColor clearColor];
-    headerBtn.opaque = NO;
-    headerBtn.frame = CGRectMake(self.view.frame.size.width-120, 5, 100.0, 30.0);
-    [headerBtn setTitle:@"View All" forState:UIControlStateNormal];
-    [headerBtn addTarget:self action:@selector(ActionEventForHeaderButton:) forControlEvents:UIControlEventTouchUpInside];
-    [headerView addSubview:headerBtn];
     
-    return headerView;
+    // intializing the customLabel header  for Table view
+    
+    self.sectionHeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 100, 30)];
+    self.sectionHeaderLabel.textColor = [UIColor whiteColor];
+    self.sectionHeaderLabel.font = [UIFont systemFontOfSize:20];
+    
+    self.headerBtn = [[UIButton alloc] initWithFrame:CGRectZero];
+    self. headerBtn.backgroundColor = [UIColor clearColor];
+    self.headerBtn.opaque = NO;
+    self. headerBtn.frame = CGRectMake(self.view.frame.size.width-120, 5, 100.0, 30.0);
+    [self.headerBtn setTitle:@"View All" forState:UIControlStateNormal];
+
+    self.sectionHeaderLabel.text =[self.headersArray objectAtIndex:section];
+    [self.headerBtn addTarget:self action:@selector(ActionEventForHeaderButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    self.sectionHeaderLabel.text =[self.headersArray objectAtIndex:section];
+    [self.headerView addSubview:self.sectionHeaderLabel];
+    [self.headerView addSubview:self.headerBtn];
+
+
+    return self.headerView;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

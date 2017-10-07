@@ -55,18 +55,8 @@
     
     [ccell.collectionImage setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:nil];
     
-    
-//    dispatch_async(dispatch_get_global_queue(0,0), ^{
-//        NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:url_Img_FULL]];
-//        if ( data == nil )
-//            return;
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            
-//            ccell.collectionImage.image = [UIImage imageWithData: data];
-//        });
-//        
-//    });
-//    
+    ccell.layer.borderWidth=1.0f;
+    ccell.layer.borderColor=[UIColor lightGrayColor].CGColor;
     return ccell;
     
 }
