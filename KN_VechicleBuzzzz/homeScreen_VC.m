@@ -12,7 +12,7 @@
 
 @interface homeScreen_VC () <SRCarouselViewDelegate>
 
-@property  UIView* headerView;
+@property  UIView* headerView,*bannerHeaderview;
 @property  UILabel *sectionHeaderLabel;
 @property UIButton * headerBtn;
 
@@ -27,8 +27,11 @@
     
     self.headersArray = [[NSMutableArray alloc]init];
     
+    
     self.productDtlsArray = [[NSMutableArray alloc]init];
     self.vechicleStatusSegment.selectedSegmentIndex=0;
+    
+    
 
     
 }
@@ -61,8 +64,9 @@
 - (void)carouselViewWithLocalImages {
     
     
-    self.headerView = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, self.homeScreenTableObj.bounds.size.width, 150))];
+    self.bannerHeaderview = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, self.homeScreenTableObj.bounds.size.width, 160))];
     
+    //self.homeScreenTableObj.tableHeaderView = self.headerView;
     NSMutableArray * bannerImagesArray = [[NSMutableArray alloc]init];
     
     for (NSString * bannerURL in [[self.homeResponseDict valueForKey:@"server_banerresponse"]valueForKey:@"baner"])
@@ -73,26 +77,28 @@
     
     self.carouselView = [SRCarouselView sr_carouselViewWithImageArrary:bannerImagesArray describeArray:nil placeholderImage:[UIImage imageNamed:@"placeHolder"] delegate:self];
     
-    _carouselView.frame = CGRectMake(0, 0, self.headerView.frame.size.width, 200);
+    _carouselView.frame = CGRectMake(0, 0, self.bannerHeaderview.frame.size.width, 160);
     _carouselView.autoPagingInterval = 3.0;
     
-    self.headerView.backgroundColor = [UIColor blueColor];
-    [self.headerView addSubview:_carouselView];
-    self.homeScreenTableObj.tableHeaderView = self.headerView;
+    self.bannerHeaderview.backgroundColor = [UIColor whiteColor];
+    [self.bannerHeaderview addSubview:_carouselView];
+    self.homeScreenTableObj.tableHeaderView = self.bannerHeaderview;
+    
+    
 
     
     
 }
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    self.headerView = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, self.homeScreenTableObj.bounds.size.width, 150))];
-    
-    _carouselView.frame = CGRectMake(0, 0, self.headerView.frame.size.width, 200);
-    
-    self.headerView.backgroundColor = [UIColor blueColor];
-    [self.headerView addSubview:_carouselView];
-    self.homeScreenTableObj.tableHeaderView = self.headerView;
-}
+//- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+//{
+//    self.bannerHeaderview = [[UIView alloc]initWithFrame:(CGRectMake(0, 150, self.homeScreenTableObj.bounds.size.width, 150))];
+//    
+//    _carouselView.frame = CGRectMake(0, 0, self.bannerHeaderview.frame.size.width, 200);
+//    
+//    self.bannerHeaderview.backgroundColor = [UIColor whiteColor];
+//    [self.bannerHeaderview addSubview:_carouselView];
+//    self.homeScreenTableObj.tableHeaderView = self.bannerHeaderview;
+//}
 
 
 
@@ -154,9 +160,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if ([[self.productDtlsArray valueForKey:@"product_dtls"]objectAtIndex:section]==nil || [[[self.productDtlsArray valueForKey:@"product_dtls"]objectAtIndex:section]count]==0)
+    {
+        return 0;
+    }
+    else
+    {
+       return 40.0;
+    }
     
     
-    return 40.0;
     
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
