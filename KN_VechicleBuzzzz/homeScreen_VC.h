@@ -14,6 +14,7 @@
 @interface homeScreen_VC : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewObj;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *vechicleStatusSegment;
 
 @property AFHTTPSessionManager * manager;
 @property NSMutableDictionary * homeResponseDict;

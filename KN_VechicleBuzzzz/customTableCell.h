@@ -18,4 +18,5 @@
 @property NSMutableArray * productDtlsCollectionArray;
 @property NSMutableArray * singleProductArray;
 @property NSInteger tableSection;
+@property NSInteger segmentCount;
 @end

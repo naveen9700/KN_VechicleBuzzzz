@@ -31,13 +31,13 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+
 {
     
-    //    NSLog(@"%@",[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:0]valueForKey:@"img_name"]);
-    //    NSLog(@"%@",self.productDtlsCollectionArray);
-    //    NSLog(@"%lu",self.tableSection);
-    //
-    return [[self.productDtlsCollectionArray objectAtIndex:self.tableSection]count];
+    
+         return [[self.productDtlsCollectionArray objectAtIndex:self.tableSection]count];
+    
+   
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

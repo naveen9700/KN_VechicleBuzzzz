@@ -8,6 +8,7 @@
 
 #import "homeScreen_VC.h"
 #import "SRCarouselView.h"
+#import "customTableCell.h"
 
 @interface homeScreen_VC () <SRCarouselViewDelegate>
 
@@ -27,6 +28,8 @@
     self.headersArray = [[NSMutableArray alloc]init];
     
     self.productDtlsArray = [[NSMutableArray alloc]init];
+    self.vechicleStatusSegment.selectedSegmentIndex=0;
+
     
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -44,9 +47,9 @@
          [self tableViewDataReloading];
          
      }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   
-              }];
+        }];
     
 }
 
@@ -58,6 +61,8 @@
 - (void)carouselViewWithLocalImages {
     
     
+    self.headerView = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, self.homeScreenTableObj.bounds.size.width, 150))];
+    
     NSMutableArray * bannerImagesArray = [[NSMutableArray alloc]init];
     
     for (NSString * bannerURL in [[self.homeResponseDict valueForKey:@"server_banerresponse"]valueForKey:@"baner"])
@@ -66,26 +71,27 @@
         
     }
     
-    self.carouselView = [SRCarouselView sr_carouselViewWithImageArrary:bannerImagesArray describeArray:nil placeholderImage:nil delegate:self];
+    self.carouselView = [SRCarouselView sr_carouselViewWithImageArrary:bannerImagesArray describeArray:nil placeholderImage:[UIImage imageNamed:@"placeHolder"] delegate:self];
     
-    _carouselView.frame = CGRectMake(0, 0, self.view.frame.size.width, 150);
+    _carouselView.frame = CGRectMake(0, 0, self.headerView.frame.size.width, 200);
     _carouselView.autoPagingInterval = 3.0;
     
-    self.scrollViewObj.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
-    [self.scrollViewObj addSubview:_carouselView];
+    self.headerView.backgroundColor = [UIColor blueColor];
+    [self.headerView addSubview:_carouselView];
+    self.homeScreenTableObj.tableHeaderView = self.headerView;
 
     
     
 }
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
+    self.headerView = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, self.homeScreenTableObj.bounds.size.width, 150))];
     
-    _carouselView.frame = CGRectMake(0, 0, self.view.frame.size.width, 150);
-   // NSInteger i = (NSInteger)size;
-    self.scrollViewObj.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self.scrollViewObj addSubview:_carouselView];
-    //NSLog(@"%f",size);
-
+    _carouselView.frame = CGRectMake(0, 0, self.headerView.frame.size.width, 200);
+    
+    self.headerView.backgroundColor = [UIColor blueColor];
+    [self.headerView addSubview:_carouselView];
+    self.homeScreenTableObj.tableHeaderView = self.headerView;
 }
 
 
@@ -101,11 +107,9 @@
             [self.headersArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"category"]];
             
             [self.productDtlsArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"product_dtls"]];
-            
-            
+  
         }
-        
-        
+      
     }
     
     NSLog(@"%@",[self.productDtlsArray objectAtIndex:1]);
@@ -129,8 +133,16 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.vechicleStatusSegment.selectedSegmentIndex==0)
+    {
+        return 1;
+        
+    }
+    else
+    {
+        return 0;
+    }
     
-    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -183,7 +195,6 @@
     
     customTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell"];
     cell.productDtlsCollectionArray = self.productDtlsArray;
-    cell.singleProductArray = [self.productDtlsArray objectAtIndex:indexPath.section];
     cell.tableSection = indexPath.section;
     NSLog(@"%lu",indexPath.section);
     [cell.homeCollectionObj reloadData];
@@ -198,6 +209,29 @@
     NSLog(@"button pressed");
 }
 
+- (IBAction)vechicleStatusSegment:(id)sender
+{
+    customTableCell * cell = [[customTableCell alloc ]init];
+    if (self.vechicleStatusSegment.selectedSegmentIndex==0)
+    {
+        cell.segmentCount=1;
+        NSLog(@"%li",cell.segmentCount);
+        //[self tableViewDataReloading];
+        [self.homeScreenTableObj reloadData];
+        
+    }
+    else if(self.vechicleStatusSegment.selectedSegmentIndex==1)
+        {
+            
+            cell.segmentCount=0;
+            NSLog(@"%li",cell.segmentCount);
+
+            [self.homeScreenTableObj reloadData];
+            
+        }
+    
+    
+}
 
 
 
