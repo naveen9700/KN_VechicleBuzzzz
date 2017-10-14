@@ -27,7 +27,7 @@
     self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     
     self.statePickerView = [[UIPickerView alloc] init];
-    [self.statePickerView setDataSource:self ];
+    //[self.statePickerView setDataSource:self ];
     [self.statePickerView setDelegate:self];
     self.statePickerView.showsSelectionIndicator = YES;
     self.stateName.inputView = self.statePickerView;
@@ -198,7 +198,7 @@
     
     if (textField==self.eMailTFT)
     {
-        if (self.eMailTFT.text.length>3 && self.eMailTFT.text.length<=15)
+        if (self.eMailTFT.text.length>3 && self.eMailTFT.text.length<=25)
         {
             return YES;
         }

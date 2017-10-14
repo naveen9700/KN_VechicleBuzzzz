@@ -1,14 +1,9 @@
-//
-//  homeScreen_VC.m
-//  
-//
-//  Created by kunchal on 25/09/17.
-//
-//
+
 
 #import "homeScreen_VC.h"
 #import "SRCarouselView.h"
 #import "customTableCell.h"
+#import "ViewAllProductsScreen.h"
 
 @interface homeScreen_VC () <SRCarouselViewDelegate>
 
@@ -246,6 +241,11 @@
     
 }
 
+
+
+- (void)didTapCarouselViewAtIndex:(NSInteger)index {
+    
+}
 
 
 @end

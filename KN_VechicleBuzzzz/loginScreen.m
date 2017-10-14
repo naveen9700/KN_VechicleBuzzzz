@@ -101,7 +101,7 @@
     if (textField==self.pswrdTFObject )
         
     {
-          if (self.pswrdTFObject.text.length>3 && self.pswrdTFObject.text.length<=10)
+          if (self.pswrdTFObject.text.length>3 && self.pswrdTFObject.text.length<10)
            {
             return YES;
            }

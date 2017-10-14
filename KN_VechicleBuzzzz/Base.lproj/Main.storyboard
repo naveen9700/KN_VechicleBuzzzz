@@ -830,7 +830,7 @@
         <!--View All Products Screen-->
         <scene sceneID="b36-4x-v5b">
             <objects>
-                <viewController storyboardIdentifier="ViewAllProductsScreen" id="0oo-UD-FfJ" customClass="ViewAllProductsScreen" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewAllProductsScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0oo-UD-FfJ" customClass="ViewAllProductsScreen" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JMe-fz-wMx"/>
                         <viewControllerLayoutGuide type="bottom" id="j7m-rO-9rq"/>
