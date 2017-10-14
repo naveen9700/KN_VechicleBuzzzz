@@ -16,6 +16,7 @@
 		0F91271F1F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F9127201F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F9127211F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
+		0F93B3101F922155004A11F7 /* ViewAllProductsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93B30F1F922155004A11F7 /* ViewAllProductsScreen.m */; };
 		0F98B9771F891C7E00ECD209 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F98B9761F891C7E00ECD209 /* QuartzCore.framework */; };
 		0FAA59441F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
 		0FAA59451F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
@@ -102,6 +103,8 @@
 		0F03ED761F79321F00267751 /* SRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCarouselView.h; sourceTree = "<group>"; };
 		0F03ED771F79321F00267751 /* SRCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCarouselView.m; sourceTree = "<group>"; };
 		0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_map_746308.png; sourceTree = "<group>"; };
+		0F93B30E1F922155004A11F7 /* ViewAllProductsScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAllProductsScreen.h; sourceTree = "<group>"; };
+		0F93B30F1F922155004A11F7 /* ViewAllProductsScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAllProductsScreen.m; sourceTree = "<group>"; };
 		0F98B9761F891C7E00ECD209 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0FAA59421F850DEA00788A45 /* customTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customTableCell.h; sourceTree = "<group>"; };
 		0FAA59431F850DEA00788A45 /* customTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTableCell.m; sourceTree = "<group>"; };
@@ -191,6 +194,15 @@
 			name = HomeScreen;
 			sourceTree = "<group>";
 		};
+		0F93B30D1F92208A004A11F7 /* ProductDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F93B30E1F922155004A11F7 /* ViewAllProductsScreen.h */,
+				0F93B30F1F922155004A11F7 /* ViewAllProductsScreen.m */,
+			);
+			name = ProductDetailsScreen;
+			sourceTree = "<group>";
+		};
 		898493EA844A129CF23C558E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +253,7 @@
 				0FBE48041F74214000CF6DE0 /* AFNETWORK_model.m */,
 				9BDC011A1F66950300E4C282 /* LoginScreen */,
 				0F03ED701F79298200267751 /* HomeScreen */,
+				0F93B30D1F92208A004A11F7 /* ProductDetailsScreen */,
 				9BDC01151F668AFF00E4C282 /* Images */,
 				9BDC00E21F6689C000E4C282 /* AppDelegate.h */,
 				9BDC00E31F6689C000E4C282 /* AppDelegate.m */,
@@ -377,7 +390,7 @@
 		9BDC00D41F6689C000E4C282 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = VNSoftech;
 				TargetAttributes = {
 					9BDC00DB1F6689C000E4C282 = {
@@ -550,6 +563,7 @@
 				9B8F04A91F6A915E00253AF9 /* Afnetwork_VC.m in Sources */,
 				0F03ED731F7929D900267751 /* homeScreen_VC.m in Sources */,
 				9BDC00E11F6689C000E4C282 /* main.m in Sources */,
+				0F93B3101F922155004A11F7 /* ViewAllProductsScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +640,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -634,7 +650,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -674,7 +694,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -682,7 +704,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

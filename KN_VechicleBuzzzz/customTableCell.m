@@ -48,12 +48,14 @@
     
     NSString *url_Img_FULL = [url_Img1 stringByAppendingPathComponent:url_Img2];
     
-    
-    
-    NSLog(@"Show url_Img_FULL: %@",url_Img_FULL);
+   // NSLog(@"Show url_Img_FULL: %@",url_Img_FULL);
     
     
     [ccell.collectionImage setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:nil];
+    ccell.productName.text = [[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_name"];
+    ccell.productPrice.text =[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"price"];
+    ccell.productFuelType.text =[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"fueltype"];
+    
     
     ccell.layer.borderWidth=1.0f;
     ccell.layer.borderColor=[UIColor lightGrayColor].CGColor;
