@@ -8,6 +8,8 @@
 
 #import "customTableCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "ViewAllProductsScreen.h"
+#import "homeScreen_VC.h"
 
 
 @implementation customTableCell
@@ -53,7 +55,17 @@
     
     [ccell.collectionImage setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:nil];
     ccell.productName.text = [[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_name"];
-    ccell.productPrice.text =[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"price"];
+    
+    NSNumber* my = [NSNumber numberWithInt:[[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"price"]intValue]];
+    
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setMaximumFractionDigits:0];
+    [currencyFormatter setCurrencySymbol:@""];
+    [currencyFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_IN"]];
+    
+    ccell.productPrice.text = [NSString stringWithFormat:@"₹%@",[currencyFormatter stringFromNumber:my]];
+    
     ccell.productFuelType.text =[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"fueltype"];
     
     
@@ -67,6 +79,16 @@
 {
     
     NSLog(@"%@",[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_name"]);
+    
+    [self nextView];
+    
+}
+-(void)nextView{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewAllProductsScreen *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [navi pushViewController:navi animated:YES];
     
 }
 @end

@@ -827,10 +827,10 @@
             </objects>
             <point key="canvasLocation" x="2734.7826086956525" y="83.967391304347828"/>
         </scene>
-        <!--View Controller-->
+        <!--View All Products Screen-->
         <scene sceneID="b36-4x-v5b">
             <objects>
-                <viewController id="0oo-UD-FfJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewAllProductsScreen" id="0oo-UD-FfJ" customClass="ViewAllProductsScreen" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JMe-fz-wMx"/>
                         <viewControllerLayoutGuide type="bottom" id="j7m-rO-9rq"/>
@@ -838,7 +838,7 @@
                     <view key="view" contentMode="scaleToFill" id="koL-b6-eZY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.28025370129999999" green="0.91726061969999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
