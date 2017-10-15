@@ -21,9 +21,10 @@
     [super viewDidLoad];
     
     self.headersArray = [[NSMutableArray alloc]init];
+    self.usedProductDtlsArray = [[NSMutableArray alloc]init];
+
     
-    
-    self.productDtlsArray = [[NSMutableArray alloc]init];
+    self.NewProductDtlsArray = [[NSMutableArray alloc]init];
     self.vechicleStatusSegment.selectedSegmentIndex=0;
     
     
@@ -84,36 +85,27 @@
     
     
 }
-//- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-//{
-//    self.bannerHeaderview = [[UIView alloc]initWithFrame:(CGRectMake(0, 150, self.homeScreenTableObj.bounds.size.width, 150))];
-//    
-//    _carouselView.frame = CGRectMake(0, 0, self.bannerHeaderview.frame.size.width, 200);
-//    
-//    self.bannerHeaderview.backgroundColor = [UIColor whiteColor];
-//    [self.bannerHeaderview addSubview:_carouselView];
-//    self.homeScreenTableObj.tableHeaderView = self.bannerHeaderview;
-//}
-
-
 
 -(void)tableViewDataReloading
 {
     for (int i = 0; i<[[self.serverResponse valueForKey:@"server_productresponse"]count];i++)
     {
-        
-        
+     
         if ([[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"veh_status"]isEqualToString:@"1"])
         {
             [self.headersArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"category"]];
             
-            [self.productDtlsArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"product_dtls"]];
+            [self.NewProductDtlsArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"product_dtls"]];
   
+        }
+        else
+        {
+           [self.usedProductDtlsArray addObject:[[[self.serverResponse valueForKey:@"server_productresponse"]objectAtIndex:i]valueForKey:@"product_dtls"]];
         }
       
     }
     
-    NSLog(@"%@",[self.productDtlsArray objectAtIndex:1]);
+    NSLog(@"%@",[self.NewProductDtlsArray objectAtIndex:1]);
     [self.homeScreenTableObj reloadData];
     [self.homeScreenTableObj setShowsVerticalScrollIndicator:NO];
     
@@ -141,21 +133,24 @@
     }
     else
     {
-        return 0;
+        if ([[[self.usedProductDtlsArray objectAtIndex:1] valueForKey:@"product_dtls"]count]==0)
+        {
+            return 0;
+        }
+        return 1;
     }
     
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    
-    
+   
     return [self.headersArray objectAtIndex:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if ([[self.productDtlsArray valueForKey:@"product_dtls"]objectAtIndex:section]==nil || [[[self.productDtlsArray valueForKey:@"product_dtls"]objectAtIndex:section]count]==0)
+    if ([[self.NewProductDtlsArray valueForKey:@"product_dtls"]objectAtIndex:section]==nil || [[[self.NewProductDtlsArray valueForKey:@"product_dtls"]objectAtIndex:section]count]==0)
     {
         return 0;
     }
@@ -163,17 +158,14 @@
     {
        return 40.0;
     }
-    
-    
-    
+ 
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     // intializing the custom header view for Table view
     self. headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.homeScreenTableObj.frame.size.width, 40)];
     self.headerView.backgroundColor = [UIColor blueColor ];
-    
-    
+   
     // intializing the customLabel header  for Table view
     
     self.sectionHeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 100, 30)];
@@ -202,7 +194,17 @@
 {
     
     customTableCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customTableCell"];
-    cell.productDtlsCollectionArray = self.productDtlsArray;
+    
+    if (self.vechicleStatusSegment.selectedSegmentIndex ==0)
+    {
+        cell.productDtlsCollectionArray = self.NewProductDtlsArray;
+    }
+    else
+    {
+        cell.productDtlsCollectionArray = self.usedProductDtlsArray;
+
+    }
+    
     cell.tableSection = indexPath.section;
     NSLog(@"%lu",indexPath.section);
     [cell.homeCollectionObj reloadData];
@@ -213,6 +215,10 @@
 -(void)ActionEventForHeaderButton:(id)sender
 {
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewAllProductsScreen *dealVC = (ViewAllProductsScreen *)[storyboard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
+    
+    [self.navigationController pushViewController:dealVC animated:YES];
     
     NSLog(@"button pressed");
 }
@@ -224,7 +230,7 @@
     {
         cell.segmentCount=1;
         NSLog(@"%li",cell.segmentCount);
-        //[self tableViewDataReloading];
+        
         [self.homeScreenTableObj reloadData];
         
     }
@@ -238,14 +244,10 @@
             
         }
     
-    
 }
-
-
 
 - (void)didTapCarouselViewAtIndex:(NSInteger)index {
     
 }
-
 
 @end

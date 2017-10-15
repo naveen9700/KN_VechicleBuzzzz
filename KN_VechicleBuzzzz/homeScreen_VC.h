@@ -20,6 +20,6 @@
 @property NSMutableDictionary * homeResponseDict;
 @property NSMutableDictionary * serverResponse;
 @property (weak, nonatomic) IBOutlet UITableView *homeScreenTableObj;
-@property NSMutableArray * productDtlsArray;
+@property NSMutableArray * NewProductDtlsArray,*usedProductDtlsArray;
 @property NSMutableArray * headersArray;
 @end

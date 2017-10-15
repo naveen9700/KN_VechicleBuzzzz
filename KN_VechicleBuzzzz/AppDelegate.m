@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "homeScreen_VC.h"
 
 @interface AppDelegate ()
-
+@property homeScreen_VC * homeVC;
 @end
 
 @implementation AppDelegate
@@ -19,6 +20,7 @@
     // Override point for customization after application launch.
     
     [NSThread sleepForTimeInterval:2.0];
+    
     
     return YES;
 }
