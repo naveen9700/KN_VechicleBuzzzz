@@ -112,6 +112,7 @@
 		0FAA59481F850F6F00788A45 /* customCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customCollectionCell.m; sourceTree = "<group>"; };
 		0FBE48031F74214000CF6DE0 /* AFNETWORK_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNETWORK_model.h; sourceTree = "<group>"; };
 		0FBE48041F74214000CF6DE0 /* AFNETWORK_model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNETWORK_model.m; sourceTree = "<group>"; };
+		0FF0C6611F9F494A00C3C660 /* myProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myProtocol.h; sourceTree = "<group>"; };
 		4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KN_VechicleBuzzzz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E23367179AAAB5BCD6974A1 /* Pods-KN_VechicleBuzzzz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KN_VechicleBuzzzz.release.xcconfig"; path = "Pods/Target Support Files/Pods-KN_VechicleBuzzzz/Pods-KN_VechicleBuzzzz.release.xcconfig"; sourceTree = "<group>"; };
 		9B537C491F67D86800F7E922 /* if_facebook_circle_color_107175.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_facebook_circle_color_107175.png; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 				0F03ED721F7929D900267751 /* homeScreen_VC.m */,
 				0FAA59421F850DEA00788A45 /* customTableCell.h */,
 				0FAA59431F850DEA00788A45 /* customTableCell.m */,
+				0FF0C6611F9F494A00C3C660 /* myProtocol.h */,
 				0FAA59471F850F6F00788A45 /* customCollectionCell.h */,
 				0FAA59481F850F6F00788A45 /* customCollectionCell.m */,
 			);

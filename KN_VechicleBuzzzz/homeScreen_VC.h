@@ -11,7 +11,7 @@
 #import "customTableCell.h"
 
 
-@interface homeScreen_VC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface homeScreen_VC : UIViewController<UITableViewDelegate,UITableViewDataSource,myProtocol>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewObj;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *vechicleStatusSegment;

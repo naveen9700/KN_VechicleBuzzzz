@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "customCollectionCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "myProtocol.h"
 
 
 @interface customTableCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -19,4 +20,5 @@
 @property NSMutableArray * singleProductArray;
 @property NSInteger tableSection;
 @property NSInteger segmentCount;
+@property id<myProtocol>delegate;
 @end

@@ -207,7 +207,9 @@
     
     cell.tableSection = indexPath.section;
     NSLog(@"%lu",indexPath.section);
+    
     [cell.homeCollectionObj reloadData];
+    cell.delegate = self;
     return cell;
     
 }
@@ -215,12 +217,6 @@
 -(void)ActionEventForHeaderButton:(id)sender
 {
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewAllProductsScreen *dealVC = (ViewAllProductsScreen *)[storyboard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
-    
-    [self.navigationController pushViewController:dealVC animated:YES];
-    
-    NSLog(@"button pressed");
 }
 
 - (IBAction)vechicleStatusSegment:(id)sender
@@ -244,6 +240,12 @@
             
         }
     
+}
+
+-(void)collectionData:(NSArray *)collectionArr
+{
+    
+    NSLog(@"%@",collectionArr);
 }
 
 - (void)didTapCarouselViewAtIndex:(NSInteger)index {

@@ -78,18 +78,9 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSLog(@"%@",[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_name"]);
-    
-    [self nextView];
+    [self.delegate collectionData:[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]];
     
 }
--(void)nextView{
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewAllProductsScreen *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [navi pushViewController:navi animated:YES];
-    
-}
+
 @end
 
