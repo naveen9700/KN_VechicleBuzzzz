@@ -40,9 +40,10 @@
     [self.manager GET:homeURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          self.homeResponseDict = responseObject ;
-         NSLog(@"%@",_homeResponseDict);
+        // NSLog(@"%@",_homeResponseDict);
          [self carouselViewWithLocalImages];
          self.serverResponse = responseObject;
+         
          [self tableViewDataReloading];
          
      }
@@ -105,7 +106,7 @@
       
     }
     
-    NSLog(@"%@",[self.NewProductDtlsArray objectAtIndex:1]);
+   // NSLog(@"%@",[self.NewProductDtlsArray objectAtIndex:1]);
     [self.homeScreenTableObj reloadData];
     [self.homeScreenTableObj setShowsVerticalScrollIndicator:NO];
     
@@ -176,6 +177,7 @@
     self. headerBtn.backgroundColor = [UIColor clearColor];
     self.headerBtn.opaque = NO;
     self. headerBtn.frame = CGRectMake(self.view.frame.size.width-120, 5, 100.0, 30.0);
+    self.headerBtn.tag = section;
     [self.headerBtn setTitle:@"View All" forState:UIControlStateNormal];
 
     self.sectionHeaderLabel.text =[self.headersArray objectAtIndex:section];
@@ -214,8 +216,17 @@
     
 }
 
--(void)ActionEventForHeaderButton:(id)sender
+-(void)ActionEventForHeaderButton:(UIButton *)sender
 {
+    NSLog(@" tag %lu",sender.tag);
+    
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"   bundle:nil];
+    ViewAllProductsScreen *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen" ];
+    vc.viewAllProductArray = [self.NewProductDtlsArray objectAtIndex:sender.tag];
+
+    [self presentViewController:vc animated:YES completion:Nil];
     
 }
 
@@ -225,7 +236,7 @@
     if (self.vechicleStatusSegment.selectedSegmentIndex==0)
     {
         cell.segmentCount=1;
-        NSLog(@"%li",cell.segmentCount);
+        //NSLog(@"%li",cell.segmentCount);
         
         [self.homeScreenTableObj reloadData];
         
@@ -234,7 +245,7 @@
         {
             
             cell.segmentCount=0;
-            NSLog(@"%li",cell.segmentCount);
+            //NSLog(@"%li",cell.segmentCount);
 
             [self.homeScreenTableObj reloadData];
             
@@ -245,7 +256,9 @@
 -(void)collectionData:(NSArray *)collectionArr
 {
     
-    NSLog(@"%@",collectionArr);
+    //NSLog(@"%@",collectionArr);
+    
+    
 }
 
 - (void)didTapCarouselViewAtIndex:(NSInteger)index {

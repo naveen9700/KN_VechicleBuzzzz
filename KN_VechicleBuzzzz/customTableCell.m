@@ -53,7 +53,7 @@
    // NSLog(@"Show url_Img_FULL: %@",url_Img_FULL);
     
     
-    [ccell.collectionImage setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:nil];
+    [ccell.collectionImage setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:[UIImage imageNamed:@"logo.png"]];
     ccell.productName.text = [[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_name"];
     
     NSNumber* my = [NSNumber numberWithInt:[[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"price"]intValue]];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F02E6461FA08F1E00182100 /* viewAllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F02E6451FA08F1E00182100 /* viewAllTableViewCell.m */; };
+		0F02E6491FA0BD8100182100 /* SingleProductDetailsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F02E6481FA0BD8100182100 /* SingleProductDetailsScreen.m */; };
 		0F03ED731F7929D900267751 /* homeScreen_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED721F7929D900267751 /* homeScreen_VC.m */; };
 		0F03ED741F7929D900267751 /* homeScreen_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED721F7929D900267751 /* homeScreen_VC.m */; };
 		0F03ED751F7929D900267751 /* homeScreen_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F03ED721F7929D900267751 /* homeScreen_VC.m */; };
@@ -98,6 +100,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F02E6441FA08F1E00182100 /* viewAllTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = viewAllTableViewCell.h; sourceTree = "<group>"; };
+		0F02E6451FA08F1E00182100 /* viewAllTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = viewAllTableViewCell.m; sourceTree = "<group>"; };
+		0F02E6471FA0BD8100182100 /* SingleProductDetailsScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleProductDetailsScreen.h; sourceTree = "<group>"; };
+		0F02E6481FA0BD8100182100 /* SingleProductDetailsScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleProductDetailsScreen.m; sourceTree = "<group>"; };
 		0F03ED711F7929D900267751 /* homeScreen_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeScreen_VC.h; sourceTree = "<group>"; };
 		0F03ED721F7929D900267751 /* homeScreen_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeScreen_VC.m; sourceTree = "<group>"; };
 		0F03ED761F79321F00267751 /* SRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCarouselView.h; sourceTree = "<group>"; };
@@ -201,6 +207,10 @@
 			children = (
 				0F93B30E1F922155004A11F7 /* ViewAllProductsScreen.h */,
 				0F93B30F1F922155004A11F7 /* ViewAllProductsScreen.m */,
+				0F02E6441FA08F1E00182100 /* viewAllTableViewCell.h */,
+				0F02E6451FA08F1E00182100 /* viewAllTableViewCell.m */,
+				0F02E6471FA0BD8100182100 /* SingleProductDetailsScreen.h */,
+				0F02E6481FA0BD8100182100 /* SingleProductDetailsScreen.m */,
 			);
 			name = ProductDetailsScreen;
 			sourceTree = "<group>";
@@ -564,6 +574,8 @@
 				9B8F04A91F6A915E00253AF9 /* Afnetwork_VC.m in Sources */,
 				0F03ED731F7929D900267751 /* homeScreen_VC.m in Sources */,
 				9BDC00E11F6689C000E4C282 /* main.m in Sources */,
+				0F02E6491FA0BD8100182100 /* SingleProductDetailsScreen.m in Sources */,
+				0F02E6461FA08F1E00182100 /* viewAllTableViewCell.m in Sources */,
 				0F93B3101F922155004A11F7 /* ViewAllProductsScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
