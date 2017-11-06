@@ -27,7 +27,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-//    NSLog(@"%@",self.viewAllProductArray);
+    if (self.viewAllProductArray.count==0)
+    {
+        [self alertMessage:@"NO data To Display"];
+    }
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,11 +75,26 @@
     return  cell;
     
 }
+-(void)alertMessage:(NSString*)message
+{
+    UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"warning" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+    {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }];
+    [alert1 addAction:okAction];
+    [self presentViewController:alert1 animated:YES completion:nil];
+    
+}
 
 
 
 
 - (IBAction)backButton:(UIButton *)sender
 {
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 @end

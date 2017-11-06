@@ -20,12 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.headersArray = [[NSMutableArray alloc]init];
-    self.usedProductDtlsArray = [[NSMutableArray alloc]init];
-
     
-    self.NewProductDtlsArray = [[NSMutableArray alloc]init];
-    self.vechicleStatusSegment.selectedSegmentIndex=0;
     
     
 
@@ -33,6 +28,13 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    self.headersArray = [[NSMutableArray alloc]init];
+    self.usedProductDtlsArray = [[NSMutableArray alloc]init];
+    
+    
+    self.NewProductDtlsArray = [[NSMutableArray alloc]init];
+    self.vechicleStatusSegment.selectedSegmentIndex=0;
     NSString * homeURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/homepage";
     
     self.manager = [AFHTTPSessionManager manager];
@@ -40,7 +42,6 @@
     [self.manager GET:homeURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
          self.homeResponseDict = responseObject ;
-        // NSLog(@"%@",_homeResponseDict);
          [self carouselViewWithLocalImages];
          self.serverResponse = responseObject;
          
@@ -63,7 +64,6 @@
     
     self.bannerHeaderview = [[UIView alloc]initWithFrame:(CGRectMake(0, 0, self.homeScreenTableObj.bounds.size.width, 160))];
     
-    //self.homeScreenTableObj.tableHeaderView = self.headerView;
     NSMutableArray * bannerImagesArray = [[NSMutableArray alloc]init];
     
     for (NSString * bannerURL in [[self.homeResponseDict valueForKey:@"server_banerresponse"]valueForKey:@"baner"])
@@ -72,7 +72,7 @@
         
     }
     
-    self.carouselView = [SRCarouselView sr_carouselViewWithImageArrary:bannerImagesArray describeArray:nil placeholderImage:[UIImage imageNamed:@"placeHolder"] delegate:self];
+    self.carouselView = [SRCarouselView sr_carouselViewWithImageArrary:bannerImagesArray describeArray:nil placeholderImage:[UIImage imageNamed:@"logo.png"] delegate:self];
     
     _carouselView.frame = CGRectMake(0, 0, self.bannerHeaderview.frame.size.width, 160);
     _carouselView.autoPagingInterval = 3.0;
@@ -106,7 +106,6 @@
       
     }
     
-   // NSLog(@"%@",[self.NewProductDtlsArray objectAtIndex:1]);
     [self.homeScreenTableObj reloadData];
     [self.homeScreenTableObj setShowsVerticalScrollIndicator:NO];
     
@@ -219,14 +218,20 @@
 -(void)ActionEventForHeaderButton:(UIButton *)sender
 {
     NSLog(@" tag %lu",sender.tag);
-    
-    
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"   bundle:nil];
     ViewAllProductsScreen *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen" ];
-    vc.viewAllProductArray = [self.NewProductDtlsArray objectAtIndex:sender.tag];
+    
+    if (self.vechicleStatusSegment.selectedSegmentIndex ==0)
+    {
+        vc.viewAllProductArray = [self.NewProductDtlsArray objectAtIndex:sender.tag];
+    }
+    else
+    {
+        vc.viewAllProductArray = [self.usedProductDtlsArray objectAtIndex:sender.tag];
 
-    [self presentViewController:vc animated:YES completion:Nil];
+    }
+
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -236,8 +241,6 @@
     if (self.vechicleStatusSegment.selectedSegmentIndex==0)
     {
         cell.segmentCount=1;
-        //NSLog(@"%li",cell.segmentCount);
-        
         [self.homeScreenTableObj reloadData];
         
     }
@@ -245,8 +248,6 @@
         {
             
             cell.segmentCount=0;
-            //NSLog(@"%li",cell.segmentCount);
-
             [self.homeScreenTableObj reloadData];
             
         }
@@ -256,12 +257,12 @@
 -(void)collectionData:(NSArray *)collectionArr
 {
     
-    //NSLog(@"%@",collectionArr);
     
     
 }
 
-- (void)didTapCarouselViewAtIndex:(NSInteger)index {
+- (void)didTapCarouselViewAtIndex:(NSInteger)index
+{
     
 }
 
