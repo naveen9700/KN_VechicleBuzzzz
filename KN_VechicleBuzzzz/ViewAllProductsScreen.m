@@ -8,6 +8,7 @@
 
 #import "ViewAllProductsScreen.h"
 #import "UIImageView+AFNetworking.h"
+#import "SingleProductDetailsScreen.h"
 
 
 
@@ -73,6 +74,18 @@
     
     
     return  cell;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SingleProductDetailsScreen * spds = [self.storyboard instantiateViewControllerWithIdentifier:@"SingleProductDetailsScreen"];
+    spds.vID =  [[self.viewAllProductArray objectAtIndex:indexPath.row]valueForKey:@"p_id"];
+    
+    spds.Vcat =[[self.viewAllProductArray objectAtIndex:indexPath.row]valueForKey:@"p_type"] ;
+    
+    [self.navigationController pushViewController:spds animated:YES];
+    
+    
     
 }
 -(void)alertMessage:(NSString*)message
