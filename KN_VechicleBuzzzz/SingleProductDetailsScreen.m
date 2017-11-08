@@ -32,7 +32,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    self.scorllHieght.
+    self.scorllHieght.constant = 1000;
     timer=[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(runImages) userInfo:nil repeats:YES];
     
     NSString * homeURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/vehicledtls";
@@ -86,10 +86,25 @@
     [self.view addSubview:self.customPageControl2];
     
     
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [currencyFormatter setMaximumFractionDigits:0];
+    [currencyFormatter setCurrencySymbol:@""];
+    [currencyFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_IN"]];
+    
+    NSNumber* my1 = [NSNumber numberWithInt:[[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"oorrice"]intValue]];
+    
+    NSNumber* my = [NSNumber numberWithInt:[[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"oprice"]intValue]];
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"₹%@",[currencyFormatter stringFromNumber:my]];
+    
+    
+    self.originalPriceLabel.text = [NSString stringWithFormat:@"₹%@",[currencyFormatter stringFromNumber:my1]];
+    
     self.nameLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"vehname"];
      self.modelLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"modelnm"];
-     self.priceLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"oprice"];
-     self.originalPriceLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"oorrice"];
+    
+    
     self.realdescriptionLabel.text =[NSString stringWithFormat:@"%@",[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"discbody"]];
     
     
