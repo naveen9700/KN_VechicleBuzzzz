@@ -32,7 +32,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    
+    self.scorllHieght.
     timer=[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(runImages) userInfo:nil repeats:YES];
     
     NSString * homeURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/vehicledtls";
@@ -44,10 +44,10 @@
      {
          
          singleProductArr = responseObject;
-         //NSLog(@"%lu",[[[[responseObject valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"] valueForKey:@"image_path"]count]);
+         NSLog(@"%@",singleProductArr);
          [self scrollImages];
      }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   
               }];
     
@@ -56,14 +56,19 @@
 -(void)scrollImages
 {
     
-    NSString *url = [[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"] valueForKey:@"image_path"];
+    NSString *url = [NSString stringWithFormat:@"%@",[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"] valueForKey:@"image_path"]];
+    
     self.imagesData = [url componentsSeparatedByString:@"$$$"];
     
-    NSLog(@"%li",self.imagesData.count);
-    for(int i=0; i<self.imagesData.count;i++){
+    
+    for(int i=0; i<self.imagesData.count;i++)
+    {
+        NSString *url_Img1 = @"http://vehiclebuzzzz.com/";
+        NSString *url_Img2 = [self.imagesData objectAtIndex:i];
+        NSString *url_Img_FULL = [url_Img1 stringByAppendingPathComponent:url_Img2];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * i, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.scrollVIEWobj.frame))];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.image = [UIImage imageNamed:[self.imagesData objectAtIndex:i]];
+        [imageView setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:[UIImage imageNamed:@"logo.png"]];
         [self.scrollVIEWobj addSubview:imageView];
     }
     self.scrollVIEWobj.delegate = self;
@@ -71,13 +76,23 @@
     
     
     // Progammatically init a TAPageControl with a custom dot view.
-    self.customPageControl2 = [[TAPageControl alloc] initWithFrame:CGRectMake(20,self.scrollVIEWobj.frame.origin.y+self.scrollVIEWobj.frame.size.height,self.scrollVIEWobj.frame.size.width,40)];//CGRectMake(0, CGRectGetMaxY(self.scrollView.frame) - 100, CGRectGetWidth(self.scrollView.frame), 40)
+    self.customPageControl2 = [[TAPageControl alloc] initWithFrame:CGRectMake(20,self.scrollVIEWobj.frame.origin.y+self.scrollVIEWobj.frame.size.height,self.scrollVIEWobj.frame.size.width,40)];
+    //CGRectMake(0, CGRectGetMaxY(self.scrollView.frame) - 100, CGRectGetWidth(self.scrollView.frame), 40)
     // Example for touch bullet event
     self.customPageControl2.delegate      = self;
     self.customPageControl2.numberOfPages = self.imagesData.count;
     self.customPageControl2.dotSize       = CGSizeMake(20, 20);
     self.scrollVIEWobj.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame) * self.imagesData.count, CGRectGetHeight(self.scrollVIEWobj.frame));
     [self.view addSubview:self.customPageControl2];
+    
+    
+    self.nameLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"vehname"];
+     self.modelLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"modelnm"];
+     self.priceLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"oprice"];
+     self.originalPriceLabel.text =[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"oorrice"];
+    self.realdescriptionLabel.text =[NSString stringWithFormat:@"%@",[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"]objectAtIndex:0] valueForKey:@"discbody"]];
+    
+    
 }
 
 
@@ -128,4 +143,15 @@
     
 }
 
+- (IBAction)getEMIButton:(UIButton *)sender
+{
+}
+
+- (IBAction)benefitsButton:(UIButton *)sender
+{
+}
+
+- (IBAction)sellerDetailsButton:(UIButton *)sender
+{
+}
 @end

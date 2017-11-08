@@ -19,4 +19,19 @@
 
 @property NSMutableDictionary * singleDict;
 @property NSString * vID,*Vcat;
+- (IBAction)getEMIButton:(UIButton *)sender;
+
+- (IBAction)benefitsButton:(UIButton *)sender;
+- (IBAction)sellerDetailsButton:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *modelLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *originalPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *engineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *featuresLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *realdescriptionLabel;
+
 @end
