@@ -78,7 +78,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [self.delegate collectionData:[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]];
+    [self.delegate collectionData:[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_id"] vechicleCat:[[[self.productDtlsCollectionArray objectAtIndex:self.tableSection] objectAtIndex:indexPath.row]valueForKey:@"p_type"]];
     
 }
 

@@ -10,5 +10,6 @@
 
 @protocol myProtocol <NSObject>
 @required
--(void)collectionData:(NSArray *)collectionArr;
+-(void)collectionData:(NSString *)VID
+          vechicleCat:(NSString *)VCAT;
 @end

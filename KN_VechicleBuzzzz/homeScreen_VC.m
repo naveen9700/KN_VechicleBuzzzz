@@ -4,6 +4,7 @@
 #import "SRCarouselView.h"
 #import "customTableCell.h"
 #import "ViewAllProductsScreen.h"
+#import "SingleProductDetailsScreen.h"
 
 @interface homeScreen_VC () <SRCarouselViewDelegate>
 
@@ -254,9 +255,14 @@
     
 }
 
--(void)collectionData:(NSArray *)collectionArr
+-(void)collectionData:(NSString *)VID vechicleCat:(NSString *)VCAT
 {
+    SingleProductDetailsScreen * spds = [self.storyboard instantiateViewControllerWithIdentifier:@"SingleProductDetailsScreen"];
     
+    spds.vID = VID;
+    spds.Vcat = VCAT;
+    
+[self.navigationController pushViewController:spds animated:YES];
     
     
 }
