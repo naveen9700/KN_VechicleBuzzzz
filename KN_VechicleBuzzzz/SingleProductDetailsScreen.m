@@ -160,13 +160,76 @@
 
 - (IBAction)getEMIButton:(UIButton *)sender
 {
+    [self popUPView:self.getEmiView];
+    
 }
 
 - (IBAction)benefitsButton:(UIButton *)sender
 {
+    [self popUPView:self.benifitsView];
 }
 
 - (IBAction)sellerDetailsButton:(UIButton *)sender
 {
+    [self popUPView:self.getSellerView];
+}
+
+
+
+
+- (void)popUPView:(UIView *)viewobj
+{
+    {
+        viewobj.frame = CGRectMake(20, -350,self.view.frame.size.width - 40,0);
+        viewobj.hidden = NO;
+        [self.view addSubview:viewobj];
+        [UIView animateWithDuration:1.0 animations:^{
+            
+           viewobj.layer.shadowOpacity = 0.2;
+            viewobj.layer.masksToBounds = NO;
+            viewobj.layer.shadowOpacity = 0.5;
+            viewobj.frame = CGRectMake(20, 140,self.view.frame.size.width - 40,300);
+            viewobj.layer.cornerRadius = 8.0;
+       viewobj.layer.borderColor = [[UIColor colorWithRed:17/255.0 green:67/255.0 blue:114/255.0 alpha:1.0]CGColor];
+            
+        }
+                         completion:^(BOOL finished)
+         {
+             
+         }];
+        
+    }
+}
+
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"touches began");
+    UITouch *touch = [touches anyObject];
+    if(touch.view!=self.getEmiView){
+        self.getEmiView.hidden = YES;
+        self.benifitsView.hidden = YES;
+
+        self.getSellerView.hidden = YES;
+
+        
+    }
+    
+}
+
+- (IBAction)popUpCancelbtn:(UIButton *)sender
+{
+    
+    self.getEmiView.hidden = YES;
+}
+- (IBAction)getSellerBtn:(UIButton *)sender
+{
+    
+    self.getSellerView.hidden = YES;
+}
+- (IBAction)benenifitsbtn:(UIButton *)sender
+{
+  self.benifitsView.hidden = YES;
 }
 @end

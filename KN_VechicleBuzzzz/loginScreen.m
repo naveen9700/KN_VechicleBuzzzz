@@ -165,7 +165,7 @@
             NSString * storyboardName = @"Main";
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
              homeScreen_VC * vc = [storyboard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
-            [self presentViewController:vc animated:YES completion:nil];
+            [self .navigationController pushViewController:vc animated:YES];
             
             
         }

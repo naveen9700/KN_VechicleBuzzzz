@@ -30,8 +30,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *originalPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *engineLabel;
 @property (weak, nonatomic) IBOutlet UILabel *featuresLabel;
+@property (strong, nonatomic) IBOutlet UIView *getEmiView;
+@property (strong, nonatomic) IBOutlet UIView *getSellerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIView *popViewobj;
+@property (strong, nonatomic) IBOutlet UIView *benifitsView;
+- (IBAction)popUpCancelbtn:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *benenifitsBtn;
+- (IBAction)benenifitsbtn:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *realdescriptionLabel;
-
+- (IBAction)getSellerBtn:(UIButton *)sender;
+@property UIView * popUpView;
 @end
