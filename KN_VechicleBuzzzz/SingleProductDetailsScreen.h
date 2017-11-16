@@ -41,5 +41,6 @@
 - (IBAction)benenifitsbtn:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *realdescriptionLabel;
 - (IBAction)getSellerBtn:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIView *popviewobj;
 @property UIView * popUpView;
 @end

@@ -17,7 +17,7 @@
 }
 @property (strong, nonatomic) TAPageControl *customPageControl2;
 
-@property (strong, nonatomic) NSArray *imagesData;
+@property (strong, nonatomic) NSMutableArray *imagesData;
 
 @end
 
@@ -49,26 +49,31 @@
      }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   
-              }];
+        }];
     
 }
 
 -(void)scrollImages
 {
+    self.imagesData = [[NSMutableArray alloc]init];
+    NSString *url = [NSString stringWithFormat:@"%@",[[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"] valueForKey:@"veh_dtls"] objectAtIndex:0]valueForKey:@"image_path"]];
     
-    NSString *url = [NSString stringWithFormat:@"%@",[[[singleProductArr valueForKey:@"server_vehicledtlsresponse"]valueForKey:@"veh_dtls"] valueForKey:@"image_path"]];
-    
-    self.imagesData = [url componentsSeparatedByString:@"$$$"];
-    
+    NSArray * arr = [url componentsSeparatedByString:@"$$$"];
+    for (NSString * str in arr)
+    {
+        NSString *url_Img1 = @"http://vehiclebuzzzz.com/";
+
+        NSString *url_Img_FULL = [url_Img1 stringByAppendingPathComponent:str];
+        [self.imagesData addObject:url_Img_FULL];
+    }
+
     
     for(int i=0; i<self.imagesData.count;i++)
     {
-        NSString *url_Img1 = @"http://vehiclebuzzzz.com/";
-        NSString *url_Img2 = [self.imagesData objectAtIndex:i];
-        NSString *url_Img_FULL = [url_Img1 stringByAppendingPathComponent:url_Img2];
+        NSLog(@"%@",[self.imagesData objectAtIndex:i]);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) * i, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.scrollVIEWobj.frame))];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
-        [imageView setImageWithURL:[NSURL URLWithString:url_Img_FULL] placeholderImage:[UIImage imageNamed:@"logo.png"]];
+        [imageView setImageWithURL:[NSURL URLWithString:[self.imagesData objectAtIndex:i]]];
         [self.scrollVIEWobj addSubview:imageView];
     }
     self.scrollVIEWobj.delegate = self;
@@ -77,7 +82,7 @@
     
     // Progammatically init a TAPageControl with a custom dot view.
     self.customPageControl2 = [[TAPageControl alloc] initWithFrame:CGRectMake(20,self.scrollVIEWobj.frame.origin.y+self.scrollVIEWobj.frame.size.height,self.scrollVIEWobj.frame.size.width,40)];
-    //CGRectMake(0, CGRectGetMaxY(self.scrollView.frame) - 100, CGRectGetWidth(self.scrollView.frame), 40)
+
     // Example for touch bullet event
     self.customPageControl2.delegate      = self;
     self.customPageControl2.numberOfPages = self.imagesData.count;
@@ -167,15 +172,14 @@
 - (IBAction)benefitsButton:(UIButton *)sender
 {
     [self popUPView:self.benifitsView];
+
 }
 
 - (IBAction)sellerDetailsButton:(UIButton *)sender
 {
     [self popUPView:self.getSellerView];
+
 }
-
-
-
 
 - (void)popUPView:(UIView *)viewobj
 {
@@ -207,14 +211,14 @@
 {
     NSLog(@"touches began");
     UITouch *touch = [touches anyObject];
-    if(touch.view!=self.getEmiView){
-        self.getEmiView.hidden = YES;
-        self.benifitsView.hidden = YES;
-
-        self.getSellerView.hidden = YES;
-
-        
-    }
+//    if(touch.view!=self.getEmiView){
+//        self.getEmiView.hidden = YES;
+//        self.benifitsView.hidden = YES;
+//
+//        self.getSellerView.hidden = YES;
+//
+//
+//    }
     
 }
 
@@ -222,14 +226,17 @@
 {
     
     self.getEmiView.hidden = YES;
+
 }
 - (IBAction)getSellerBtn:(UIButton *)sender
 {
     
     self.getSellerView.hidden = YES;
+
 }
 - (IBAction)benenifitsbtn:(UIButton *)sender
 {
   self.benifitsView.hidden = YES;
+
 }
 @end
