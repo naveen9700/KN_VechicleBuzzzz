@@ -207,20 +207,20 @@
 
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"touches began");
-    UITouch *touch = [touches anyObject];
-//    if(touch.view!=self.getEmiView){
-//        self.getEmiView.hidden = YES;
-//        self.benifitsView.hidden = YES;
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"touches began");
+//    UITouch *touch = [touches anyObject];
+////    if(touch.view!=self.getEmiView){
+////        self.getEmiView.hidden = YES;
+////        self.benifitsView.hidden = YES;
+////
+////        self.getSellerView.hidden = YES;
+////
+////
+////    }
 //
-//        self.getSellerView.hidden = YES;
-//
-//
-//    }
-    
-}
+//}
 
 - (IBAction)popUpCancelbtn:(UIButton *)sender
 {
