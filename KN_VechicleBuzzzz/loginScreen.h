@@ -26,4 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *FBlogin;
 @property (weak, nonatomic) IBOutlet UIButton *GoogleLogin;
 
+
+
+
 @end

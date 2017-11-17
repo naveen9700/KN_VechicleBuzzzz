@@ -11,6 +11,7 @@
 @property  UIView* headerView,*bannerHeaderview;
 @property  UILabel *sectionHeaderLabel;
 @property UIButton * headerBtn;
+@property UIActivityIndicatorView * indicator;
 
 
 @property SRCarouselView *carouselView;
@@ -30,6 +31,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
+   
+    
     self.headersArray = [[NSMutableArray alloc]init];
     self.usedProductDtlsArray = [[NSMutableArray alloc]init];
     
@@ -47,6 +50,7 @@
          self.serverResponse = responseObject;
          
          [self tableViewDataReloading];
+
          
      }
     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -178,10 +178,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qol-93-3OG">
                                                         <rect key="frame" x="60" y="15" width="51" height="50"/>
                                                         <state key="normal" title="Button" image="if_facebook_circle_color_107175.png"/>
+                                                        <connections>
+                                                            <action selector="faceBookLogin:" destination="K4M-Et-JyF" eventType="touchUpInside" id="dRI-Jm-Box"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3u-i9-HOD">
                                                         <rect key="frame" x="119" y="15" width="51" height="50"/>
                                                         <state key="normal" title="Button" image="if_google_circle_color_107180.png"/>
+                                                        <connections>
+                                                            <action selector="googleLogin:" destination="K4M-Et-JyF" eventType="touchUpInside" id="Cjr-oV-q9i"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -194,7 +200,7 @@
                                                     <constraint firstAttribute="width" constant="240" id="Hjr-jT-duS"/>
                                                     <constraint firstAttribute="bottom" secondItem="qol-93-3OG" secondAttribute="bottom" constant="15" id="N7g-T8-EHo"/>
                                                     <constraint firstAttribute="trailing" secondItem="E3u-i9-HOD" secondAttribute="trailing" constant="70" id="fOQ-mr-0zO"/>
-                                                    <constraint firstItem="E3u-i9-HOD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qol-93-3OG" secondAttribute="trailing" symbolic="YES" id="kCv-d5-cjw"/>
+                                                    <constraint firstItem="E3u-i9-HOD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qol-93-3OG" secondAttribute="trailing" constant="8" symbolic="YES" id="kCv-d5-cjw"/>
                                                     <constraint firstItem="E3u-i9-HOD" firstAttribute="height" secondItem="qol-93-3OG" secondAttribute="height" id="pAk-tK-82a"/>
                                                 </constraints>
                                             </view>
@@ -1355,7 +1361,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.12299349919999999" green="0.056447726900000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.13489548470000001" green="0.41004642730000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Gp1-4S-osq" secondAttribute="trailing" constant="4" id="HQj-wq-yIZ"/>
                                 <constraint firstAttribute="height" constant="30" id="VRR-9p-7MM"/>
@@ -1520,7 +1526,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.12299349919999999" green="0.056447726900000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.13489548470000001" green="0.41004642730000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="ADx-Hf-aWt" firstAttribute="top" secondItem="4Yg-TI-GeM" secondAttribute="top" constant="5" id="aOz-dX-LkM"/>
                                 <constraint firstItem="uLe-Q4-KuP" firstAttribute="top" secondItem="4Yg-TI-GeM" secondAttribute="top" constant="3" id="ld9-K1-hSM"/>

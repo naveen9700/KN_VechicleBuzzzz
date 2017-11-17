@@ -21,6 +21,10 @@
 		0F9127211F77EEBC00DE8CA1 /* if_map_746308.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */; };
 		0F93B3101F922155004A11F7 /* ViewAllProductsScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93B30F1F922155004A11F7 /* ViewAllProductsScreen.m */; };
 		0F98B9771F891C7E00ECD209 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F98B9761F891C7E00ECD209 /* QuartzCore.framework */; };
+		0FA862E71FBEE7B1003619EF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA862E31FBEE7B0003619EF /* FBSDKShareKit.framework */; };
+		0FA862E81FBEE7B1003619EF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA862E41FBEE7B0003619EF /* FBSDKCoreKit.framework */; };
+		0FA862E91FBEE7B1003619EF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA862E51FBEE7B0003619EF /* Bolts.framework */; };
+		0FA862EA1FBEE7B1003619EF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA862E61FBEE7B1003619EF /* FBSDKLoginKit.framework */; };
 		0FAA59441F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
 		0FAA59451F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
 		0FAA59461F850DEA00788A45 /* customTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAA59431F850DEA00788A45 /* customTableCell.m */; };
@@ -130,6 +134,10 @@
 		0F93B30E1F922155004A11F7 /* ViewAllProductsScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAllProductsScreen.h; sourceTree = "<group>"; };
 		0F93B30F1F922155004A11F7 /* ViewAllProductsScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAllProductsScreen.m; sourceTree = "<group>"; };
 		0F98B9761F891C7E00ECD209 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0FA862E31FBEE7B0003619EF /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		0FA862E41FBEE7B0003619EF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		0FA862E51FBEE7B0003619EF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		0FA862E61FBEE7B1003619EF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		0FAA59421F850DEA00788A45 /* customTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customTableCell.h; sourceTree = "<group>"; };
 		0FAA59431F850DEA00788A45 /* customTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTableCell.m; sourceTree = "<group>"; };
 		0FAA59471F850F6F00788A45 /* customCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customCollectionCell.h; sourceTree = "<group>"; };
@@ -202,8 +210,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA862E91FBEE7B1003619EF /* Bolts.framework in Frameworks */,
 				0F98B9771F891C7E00ECD209 /* QuartzCore.framework in Frameworks */,
+				0FA862EA1FBEE7B1003619EF /* FBSDKLoginKit.framework in Frameworks */,
+				0FA862E81FBEE7B1003619EF /* FBSDKCoreKit.framework in Frameworks */,
 				58D828CAA6ECC8FDA575F4F9 /* libPods-KN_VechicleBuzzzz.a in Frameworks */,
+				0FA862E71FBEE7B1003619EF /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +261,20 @@
 				0F02E6451FA08F1E00182100 /* viewAllTableViewCell.m */,
 				0F02E6471FA0BD8100182100 /* SingleProductDetailsScreen.h */,
 				0F02E6481FA0BD8100182100 /* SingleProductDetailsScreen.m */,
+				0FA862E21FBEE71E003619EF /* frameWorks */,
 			);
 			name = ProductDetailsScreen;
+			sourceTree = "<group>";
+		};
+		0FA862E21FBEE71E003619EF /* frameWorks */ = {
+			isa = PBXGroup;
+			children = (
+				0FA862E51FBEE7B0003619EF /* Bolts.framework */,
+				0FA862E41FBEE7B0003619EF /* FBSDKCoreKit.framework */,
+				0FA862E61FBEE7B1003619EF /* FBSDKLoginKit.framework */,
+				0FA862E31FBEE7B0003619EF /* FBSDKShareKit.framework */,
+			);
+			name = frameWorks;
 			sourceTree = "<group>";
 		};
 		0FD6B2BD1FB1935B004DA7CD /* TAPageControl */ = {
@@ -482,6 +506,7 @@
 				TargetAttributes = {
 					9BDC00DB1F6689C000E4C282 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = CD99W5FU4N;
 						ProvisioningStyle = Automatic;
 					};
 					9BDC00F71F6689C000E4C282 = {
@@ -844,7 +869,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CD99W5FU4N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KN_VechicleBuzzzz",
+				);
 				INFOPLIST_FILE = KN_VechicleBuzzzz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -860,7 +889,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CD99W5FU4N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KN_VechicleBuzzzz",
+				);
 				INFOPLIST_FILE = KN_VechicleBuzzzz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

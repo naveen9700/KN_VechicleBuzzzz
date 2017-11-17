@@ -4,6 +4,8 @@
 #import "Afnetwork_VC.h"
 #import "AFNETWORK_model.h"
 #import "homeScreen_VC.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
 @interface loginScreen ()<UITextFieldDelegate>
@@ -197,6 +199,21 @@
         [self alertMessage:@"Enter Valid UserName & Password !"];
     }
   
+}
+- (IBAction)faceBookLogin:(UIButton *)sender
+{
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    // Optional: Place the button in the center of your view.
+    loginButton.center = self.view.center;
+   // [self.view addSubview:loginButton];
+    if ([FBSDKAccessToken currentAccessToken])
+    {
+        // User is logged in, do work such as go to next view controller.
+        NSLog(@"%@",[FBSDKAccessToken currentAccessToken]);
+    }
+    
+}
+- (IBAction)googleLogin:(UIButton *)sender {
 }
 
 @end
