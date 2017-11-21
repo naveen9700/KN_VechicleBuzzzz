@@ -261,12 +261,32 @@ didSignInForUser:(GIDGoogleUser *)user
     
     NSLog(@"%@  .... %@  ... %@ ...  %@",userId,idToken,fullName,email);
     
-    //    if (userId.length>0)
-    //    {
-    //        NSDictionary *params  = @{@"action":@"google_account",@"name":fullName,@"email":email ,@"social_id":userId};
-    //
-    //        [self loginWebServiceCall:@"google_account" andParams:params];
-    //    }
+    
+    NSString * googleURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/login";
+
+    
+        if (userId.length>0)
+        {
+            NSDictionary *params  = @{@"action":@"google_account",@"name":fullName,@"email":email ,@"social_id":userId};
+            
+            [self.manager POST:googleURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+            
+            {
+                NSLog(@"%@",responseObject);
+                
+                NSString * storyboardName = @"Main";
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+                homeScreen_VC * vc = (homeScreen_VC*)[storyboard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
+                [self .navigationController pushViewController:vc animated:YES];
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
+    
+            
+        }
+    
+    
 }
 
 // Present a view that prompts the user to sign in with Google
@@ -274,15 +294,14 @@ didSignInForUser:(GIDGoogleUser *)user
 presentViewController:(UIViewController *)viewController
 {
     
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 // Dismiss the "Sign in with Google" view
 - (void)signIn:(GIDSignIn *)signIn
 dismissViewController:(UIViewController *)viewController
 {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
