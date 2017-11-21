@@ -7,10 +7,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
+#define GoogleClientID @"395662728779-vl3vi60mbpm2hrstc8ef9bij4d99ou1i.apps.googleusercontent.com"
+@interface loginScreen ()<UITextFieldDelegate  ,GIDSignInUIDelegate>
 
-@interface loginScreen ()<UITextFieldDelegate>
 
- 
+
+ @property (nonatomic, strong) GIDSignIn *signIn;
 
 @end
 
@@ -20,6 +22,27 @@
 {
    
     [super viewDidLoad];
+    
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    
+    
+    _signIn = [GIDSignIn sharedInstance];
+    
+    //  _signIn.shouldFetchGooglePlusUser = YES;
+    
+    _signIn.shouldFetchBasicProfile = YES;
+    // Uncomment to get the user's email
+    
+    // You previously set kClientId in the "Initialize the Google+ client" step
+    _signIn.clientID = GoogleClientID;
+    
+    // "https://www.googleapis.com/auth/plus.login" scope
+    
+    _signIn.scopes = @[@"profile",@"https://www.googleapis.com/auth/plus.login"];
+    // "profile" scope
+    
+    // Optional: declare signIn.actions, see "app activities"
+    _signIn.delegate = self;
     
     self.manager = [AFHTTPSessionManager manager];
     
@@ -213,7 +236,55 @@
     }
     
 }
-- (IBAction)googleLogin:(UIButton *)sender {
+- (IBAction)googleLogin:(UIButton *)sender
+{
+    
+    
+    [self.signIn signInSilently];
+    [self.signIn signIn];
 }
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
+{
+    
+}
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error
+{
+    // Perform any operations on signed in user here.
+    NSString *userId = user.userID;
+    NSString *idToken = user.authentication.idToken;
+    [[NSUserDefaults standardUserDefaults] setObject:idToken forKey:@"Google_Token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *fullName = user.profile.name;
+    NSString *email = user.profile.email;
+    
+    NSLog(@"%@  .... %@  ... %@ ...  %@",userId,idToken,fullName,email);
+    
+    //    if (userId.length>0)
+    //    {
+    //        NSDictionary *params  = @{@"action":@"google_account",@"name":fullName,@"email":email ,@"social_id":userId};
+    //
+    //        [self loginWebServiceCall:@"google_account" andParams:params];
+    //    }
+}
+
+// Present a view that prompts the user to sign in with Google
+- (void)signIn:(GIDSignIn *)signIn
+presentViewController:(UIViewController *)viewController
+{
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+// Dismiss the "Sign in with Google" view
+- (void)signIn:(GIDSignIn *)signIn
+dismissViewController:(UIViewController *)viewController
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

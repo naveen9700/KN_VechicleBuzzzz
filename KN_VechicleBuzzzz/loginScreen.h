@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Afnetwork_VC.h"
 #import <AFNetworking/AFNetworking.h>
+#import <Google/SignIn.h>
+#import <GoogleSignIn/GoogleSignIn.h>
 
 @interface loginScreen : UIViewController
 

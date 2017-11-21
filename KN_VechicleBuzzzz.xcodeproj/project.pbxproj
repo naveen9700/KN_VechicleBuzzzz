@@ -48,6 +48,9 @@
 		0FD6B2E01FB1935D004DA7CD /* dotActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6B2D01FB1935D004DA7CD /* dotActive.png */; };
 		0FD6B2E11FB1935D004DA7CD /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6B2D11FB1935D004DA7CD /* image2.jpg */; };
 		0FD6B2E21FB1935D004DA7CD /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6B2D21FB1935D004DA7CD /* image3.jpg */; };
+		0FE141361FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
+		0FE141371FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
+		0FE141381FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
 		58D828CAA6ECC8FDA575F4F9 /* libPods-KN_VechicleBuzzzz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */; };
 		9B537C4B1F67D86800F7E922 /* if_facebook_circle_color_107175.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B537C491F67D86800F7E922 /* if_facebook_circle_color_107175.png */; };
 		9B537C4C1F67D86800F7E922 /* if_facebook_circle_color_107175.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B537C491F67D86800F7E922 /* if_facebook_circle_color_107175.png */; };
@@ -164,6 +167,7 @@
 		0FD6B2D01FB1935D004DA7CD /* dotActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dotActive.png; sourceTree = "<group>"; };
 		0FD6B2D11FB1935D004DA7CD /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		0FD6B2D21FB1935D004DA7CD /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
+		0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FF0C6611F9F494A00C3C660 /* myProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myProtocol.h; sourceTree = "<group>"; };
 		4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KN_VechicleBuzzzz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E23367179AAAB5BCD6974A1 /* Pods-KN_VechicleBuzzzz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KN_VechicleBuzzzz.release.xcconfig"; path = "Pods/Target Support Files/Pods-KN_VechicleBuzzzz/Pods-KN_VechicleBuzzzz.release.xcconfig"; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				9BDC00EE1F6689C000E4C282 /* Assets.xcassets */,
 				9BDC00F01F6689C000E4C282 /* LaunchScreen.storyboard */,
 				9BDC00F31F6689C000E4C282 /* Info.plist */,
+				0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */,
 				9BDC00EB1F6689C000E4C282 /* KN_VechicleBuzzzz.xcdatamodeld */,
 				0FD6B2C61FB1935D004DA7CD /* Resources */,
 				0FD6B2BD1FB1935B004DA7CD /* TAPageControl */,
@@ -565,6 +570,7 @@
 				0FD6B2E11FB1935D004DA7CD /* image2.jpg in Resources */,
 				0FD6B2D71FB1935D004DA7CD /* dotInactive.png in Resources */,
 				9B62B3301F69515900ADF507 /* if_user_309035.png in Resources */,
+				0FE141361FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */,
 				9BDC00EF1F6689C000E4C282 /* Assets.xcassets in Resources */,
 				0F91271F1F77EEBC00DE8CA1 /* if_map_746308.png in Resources */,
 				0FD6B2DF1FB1935D004DA7CD /* image1.jpg in Resources */,
@@ -597,6 +603,7 @@
 				9B62B31D1F693D2000ADF507 /* 925891-128.png in Resources */,
 				0F9127201F77EEBC00DE8CA1 /* if_map_746308.png in Resources */,
 				9B62B32E1F69515900ADF507 /* if_phone_476326.png in Resources */,
+				0FE141371FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +624,7 @@
 				9B62B31E1F693D2000ADF507 /* 925891-128.png in Resources */,
 				0F9127211F77EEBC00DE8CA1 /* if_map_746308.png in Resources */,
 				9B62B32F1F69515900ADF507 /* if_phone_476326.png in Resources */,
+				0FE141381FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
