@@ -283,9 +283,9 @@
 				0F02E6481FA0BD8100182100 /* SingleProductDetailsScreen.m */,
 				0FEC1CA51FC539990054AE37 /* contactusVC.h */,
 				0FEC1CA61FC539990054AE37 /* contactusVC.m */,
-				0FA862E21FBEE71E003619EF /* frameWorks */,
 				0FEC1CA81FC53A420054AE37 /* vehicleOffersVC.h */,
 				0FEC1CA91FC53A420054AE37 /* vehicleOffersVC.m */,
+				0FA862E21FBEE71E003619EF /* frameWorks */,
 			);
 			name = ProductDetailsScreen;
 			sourceTree = "<group>";
