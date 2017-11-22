@@ -12,6 +12,7 @@
 
 
 
+
 @interface ViewAllProductsScreen ()
 
 @end
@@ -94,7 +95,7 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
     {
         
-        [self.navigationController popViewControllerAnimated:YES];
+        
 
     }];
     [alert1 addAction:okAction];

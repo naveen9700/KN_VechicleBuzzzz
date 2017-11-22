@@ -17,7 +17,7 @@
 @property AFHTTPSessionManager *manager;
 
 @property (weak, nonatomic) IBOutlet UIView *userViewObject;
-
+@property UIWindow * window;
 @property (weak, nonatomic) IBOutlet UIView *pswrdViewObject;
 @property (weak, nonatomic) IBOutlet UITextField *userTFObject;
 @property (weak, nonatomic) IBOutlet UITextField *pswrdTFObject;

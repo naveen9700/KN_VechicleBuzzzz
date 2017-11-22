@@ -4,6 +4,9 @@
 #import "Afnetwork_VC.h"
 #import "AFNETWORK_model.h"
 #import "homeScreen_VC.h"
+#import "ViewAllProductsScreen.h"
+#import "contactusVC.h"
+#import "vehicleOffersVC.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
@@ -274,10 +277,12 @@ didSignInForUser:(GIDGoogleUser *)user
             {
                 NSLog(@"%@",responseObject);
                 
-                NSString * storyboardName = @"Main";
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-                homeScreen_VC * vc = (homeScreen_VC*)[storyboard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
-                [self .navigationController pushViewController:vc animated:YES];
+//                NSString * storyboardName = @"Main";
+//                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+//                homeScreen_VC * vc = (homeScreen_VC*)[storyboard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
+//                [self .navigationController pushViewController:vc animated:YES];
+
+                [self tabBarFUNC];
                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 
@@ -302,6 +307,42 @@ presentViewController:(UIViewController *)viewController
 dismissViewController:(UIViewController *)viewController
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)tabBarFUNC
+{
+    
+    UIStoryboard * mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController * tab = [[UITabBarController alloc]init];
+    
+    
+    UIViewController * home = (homeScreen_VC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"homeScreen_VC"]  ;
+    home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"Home.png"] tag:0];
+    
+    
+    UIViewController * viewAll = (ViewAllProductsScreen*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
+    viewAll.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Used" image:[UIImage imageNamed:@"Menu.png"] tag:1];
+    
+    UIViewController * vehicleOffers = (vehicleOffersVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"vehicleOffersVC"];
+    vehicleOffers.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Offers" image:[UIImage imageNamed:@"Vehcile.png"] tag:2];
+    
+    UIViewController * contact = (contactusVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"contactusVC"];
+    contact.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"contact" image:[UIImage imageNamed:@"Phone.png"] tag:3];
+    
+    tab.viewControllers = [NSArray arrayWithObjects:home,viewAll,vehicleOffers,contact, nil];
+    
+    //  [  tab.tabBar setBackgroundColor:[UIColor blueColor]];
+    //    tab.tabBar .tintColor = [UIColor whiteColor];
+    [[UITabBar appearance]setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance]setBackgroundColor:[UIColor blueColor]];
+    
+    UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:tab];
+    navigation.navigationBar.hidden = YES;
+    self.window.rootViewController = navigation;
+    [self.window makeKeyAndVisible];
+    
+    [self.navigationController pushViewController:tab animated:YES];
+    
 }
 
 

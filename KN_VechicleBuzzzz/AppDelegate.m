@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "homeScreen_VC.h"
 #import "contactusVC.h"
+#import "loginScreen.h"
 
 @interface AppDelegate ()
 @property homeScreen_VC * homeVC;
@@ -31,12 +32,19 @@
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
     [GIDSignIn sharedInstance].delegate = self;
-    
-    UITabBarController * tab = [[UITabBarController alloc]init];
-    
     UIStoryboard * mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UIViewController * home = (homeScreen_VC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Google_Token"];
+    
+    
+    if (    [[NSUserDefaults standardUserDefaults]valueForKey:@"Google_Token"]> 0)
+    {
+        NSLog(@"%@",[[NSUserDefaults standardUserDefaults]valueForKey:@"Google_Token"]);
+        
+    UITabBarController * tab = [[UITabBarController alloc]init];
+    
+    
+    UIViewController * home = (homeScreen_VC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"homeScreen_VC"]  ;
     home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"Home.png"] tag:0];
     
     
@@ -60,6 +68,22 @@
     navigation.navigationBar.hidden = YES;
     self.window.rootViewController = navigation;
     [self.window makeKeyAndVisible];
+  
+    
+    }
+    else
+    {
+        
+        UINavigationController * navi = (UINavigationController *)self.window.rootViewController;
+        
+        UIViewController * login = (loginScreen*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"loginScreen"];
+        navi.navigationBar.hidden = YES;
+        self.window.rootViewController = navi;
+        [navi pushViewController:login animated:YES];
+        
+        
+    }
+    
     
     
     

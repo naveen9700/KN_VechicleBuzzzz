@@ -20,7 +20,7 @@
         <!--Login Screen-->
         <scene sceneID="NOZ-ly-buE">
             <objects>
-                <viewController id="K4M-Et-JyF" customClass="loginScreen" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K4M-Et-JyF" customClass="loginScreen" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BxJ-j2-seZ"/>
                         <viewControllerLayoutGuide type="bottom" id="12w-UF-dOY"/>
@@ -303,7 +303,7 @@
         <!--Sign UpVC-->
         <scene sceneID="Ana-1W-Rl0">
             <objects>
-                <viewController id="Vh1-kQ-Liv" customClass="SignUp_VC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp_VC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vh1-kQ-Liv" customClass="SignUp_VC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xPG-hq-sYk"/>
                         <viewControllerLayoutGuide type="bottom" id="v5U-Tw-3sm"/>
@@ -1943,9 +1943,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="K4M-Et-JyF" kind="relationship" relationship="rootViewController" id="2oD-lc-nlP"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZC-Im-eS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
