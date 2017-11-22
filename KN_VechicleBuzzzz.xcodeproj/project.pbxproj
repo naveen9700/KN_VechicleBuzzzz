@@ -51,6 +51,13 @@
 		0FE141361FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
 		0FE141371FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
 		0FE141381FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
+		0FEC1CA01FC5360E0054AE37 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9B1FC5360D0054AE37 /* Profile.png */; };
+		0FEC1CA11FC5360E0054AE37 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9C1FC5360E0054AE37 /* Home.png */; };
+		0FEC1CA21FC5360E0054AE37 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9D1FC5360E0054AE37 /* Menu.png */; };
+		0FEC1CA31FC5360E0054AE37 /* Vehcile.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9E1FC5360E0054AE37 /* Vehcile.png */; };
+		0FEC1CA41FC5360E0054AE37 /* Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9F1FC5360E0054AE37 /* Phone.png */; };
+		0FEC1CA71FC539990054AE37 /* contactusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC1CA61FC539990054AE37 /* contactusVC.m */; };
+		0FEC1CAA1FC53A420054AE37 /* vehicleOffersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEC1CA91FC53A420054AE37 /* vehicleOffersVC.m */; };
 		58D828CAA6ECC8FDA575F4F9 /* libPods-KN_VechicleBuzzzz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */; };
 		9B537C4B1F67D86800F7E922 /* if_facebook_circle_color_107175.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B537C491F67D86800F7E922 /* if_facebook_circle_color_107175.png */; };
 		9B537C4C1F67D86800F7E922 /* if_facebook_circle_color_107175.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B537C491F67D86800F7E922 /* if_facebook_circle_color_107175.png */; };
@@ -168,6 +175,15 @@
 		0FD6B2D11FB1935D004DA7CD /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		0FD6B2D21FB1935D004DA7CD /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 		0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0FEC1C9B1FC5360D0054AE37 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = "<group>"; };
+		0FEC1C9C1FC5360E0054AE37 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		0FEC1C9D1FC5360E0054AE37 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
+		0FEC1C9E1FC5360E0054AE37 /* Vehcile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vehcile.png; sourceTree = "<group>"; };
+		0FEC1C9F1FC5360E0054AE37 /* Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone.png; sourceTree = "<group>"; };
+		0FEC1CA51FC539990054AE37 /* contactusVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = contactusVC.h; sourceTree = "<group>"; };
+		0FEC1CA61FC539990054AE37 /* contactusVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = contactusVC.m; sourceTree = "<group>"; };
+		0FEC1CA81FC53A420054AE37 /* vehicleOffersVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vehicleOffersVC.h; sourceTree = "<group>"; };
+		0FEC1CA91FC53A420054AE37 /* vehicleOffersVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vehicleOffersVC.m; sourceTree = "<group>"; };
 		0FF0C6611F9F494A00C3C660 /* myProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myProtocol.h; sourceTree = "<group>"; };
 		4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KN_VechicleBuzzzz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E23367179AAAB5BCD6974A1 /* Pods-KN_VechicleBuzzzz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KN_VechicleBuzzzz.release.xcconfig"; path = "Pods/Target Support Files/Pods-KN_VechicleBuzzzz/Pods-KN_VechicleBuzzzz.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,7 +281,11 @@
 				0F02E6451FA08F1E00182100 /* viewAllTableViewCell.m */,
 				0F02E6471FA0BD8100182100 /* SingleProductDetailsScreen.h */,
 				0F02E6481FA0BD8100182100 /* SingleProductDetailsScreen.m */,
+				0FEC1CA51FC539990054AE37 /* contactusVC.h */,
+				0FEC1CA61FC539990054AE37 /* contactusVC.m */,
 				0FA862E21FBEE71E003619EF /* frameWorks */,
+				0FEC1CA81FC53A420054AE37 /* vehicleOffersVC.h */,
+				0FEC1CA91FC53A420054AE37 /* vehicleOffersVC.m */,
 			);
 			name = ProductDetailsScreen;
 			sourceTree = "<group>";
@@ -413,6 +433,11 @@
 		9BDC01151F668AFF00E4C282 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0FEC1C9C1FC5360E0054AE37 /* Home.png */,
+				0FEC1C9D1FC5360E0054AE37 /* Menu.png */,
+				0FEC1C9F1FC5360E0054AE37 /* Phone.png */,
+				0FEC1C9B1FC5360D0054AE37 /* Profile.png */,
+				0FEC1C9E1FC5360E0054AE37 /* Vehcile.png */,
 				0F0347101FBC30F3008E4FBD /* Cancel.png */,
 				0F91271E1F77EEBC00DE8CA1 /* if_map_746308.png */,
 				9B62B31F1F69515900ADF507 /* if_editor-lock-outline-stroke_763348.png */,
@@ -557,6 +582,7 @@
 				0FD6B2DE1FB1935D004DA7CD /* image5.jpg in Resources */,
 				9BDC01171F668B2600E4C282 /* logo.png in Resources */,
 				0FD6B2DC1FB1935D004DA7CD /* image6.jpg in Resources */,
+				0FEC1CA11FC5360E0054AE37 /* Home.png in Resources */,
 				9B537C4B1F67D86800F7E922 /* if_facebook_circle_color_107175.png in Resources */,
 				0FD6B2DD1FB1935D004DA7CD /* image4.jpg in Resources */,
 				9B62B3241F69515900ADF507 /* if_editor-lock-outline-stroke_763348.png in Resources */,
@@ -573,16 +599,20 @@
 				0FE141361FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */,
 				9BDC00EF1F6689C000E4C282 /* Assets.xcassets in Resources */,
 				0F91271F1F77EEBC00DE8CA1 /* if_map_746308.png in Resources */,
+				0FEC1CA21FC5360E0054AE37 /* Menu.png in Resources */,
 				0FD6B2DF1FB1935D004DA7CD /* image1.jpg in Resources */,
 				0FD6B2E21FB1935D004DA7CD /* image3.jpg in Resources */,
+				0FEC1CA31FC5360E0054AE37 /* Vehcile.png in Resources */,
 				9BDC01251F66A7DA00E4C282 /* icons8-User-40.png in Resources */,
 				9B8F04A41F6A8A8A00253AF9 /* podfile in Resources */,
+				0FEC1CA01FC5360E0054AE37 /* Profile.png in Resources */,
 				9B62B32D1F69515900ADF507 /* if_phone_476326.png in Resources */,
 				0FD6B2DA1FB1935D004DA7CD /* dotActive@2x.png in Resources */,
 				9BDC00EA1F6689C000E4C282 /* Main.storyboard in Resources */,
 				0FD6B2DB1FB1935D004DA7CD /* dotInactive@3x.png in Resources */,
 				0FD6B2D81FB1935D004DA7CD /* dotInactive@2x.png in Resources */,
 				0FD6B2D91FB1935D004DA7CD /* dotActive@3x.png in Resources */,
+				0FEC1CA41FC5360E0054AE37 /* Phone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,12 +727,14 @@
 				0FD6B2D61FB1935D004DA7CD /* TAAbstractDotView.m in Sources */,
 				9BDC011D1F6696D000E4C282 /* loginScreen.m in Sources */,
 				0F03ED781F79321F00267751 /* SRCarouselView.m in Sources */,
+				0FEC1CAA1FC53A420054AE37 /* vehicleOffersVC.m in Sources */,
 				9BDC00E71F6689C000E4C282 /* ViewController.m in Sources */,
 				9BDC00E41F6689C000E4C282 /* AppDelegate.m in Sources */,
 				0FD6B2D51FB1935D004DA7CD /* TAAnimatedDotView.m in Sources */,
 				0FBE48051F74214000CF6DE0 /* AFNETWORK_model.m in Sources */,
 				9B8F04A91F6A915E00253AF9 /* Afnetwork_VC.m in Sources */,
 				0F03ED731F7929D900267751 /* homeScreen_VC.m in Sources */,
+				0FEC1CA71FC539990054AE37 /* contactusVC.m in Sources */,
 				0FD6B2D41FB1935D004DA7CD /* TAPageControl.m in Sources */,
 				9BDC00E11F6689C000E4C282 /* main.m in Sources */,
 				0F02E6491FA0BD8100182100 /* SingleProductDetailsScreen.m in Sources */,

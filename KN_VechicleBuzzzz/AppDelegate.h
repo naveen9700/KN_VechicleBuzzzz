@@ -10,6 +10,10 @@
 #import <CoreData/CoreData.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Google/SignIn.h>
+#import "homeScreen_VC.h"
+#import "ViewAllProductsScreen.h"
+#import "vehicleOffersVC.h"
+#import "contactusVC.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,GIDSignInDelegate>
 

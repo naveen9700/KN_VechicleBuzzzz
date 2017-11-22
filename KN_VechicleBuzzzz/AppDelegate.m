@@ -31,6 +31,17 @@
     
     [GIDSignIn sharedInstance].delegate = self;
     
+    UITabBarController * tab = [[UITabBarController alloc]init];
+    
+    UIStoryboard * mainStoryBoard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+    
+    UIViewController * home = (homeScreen_VC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
+    home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"Home.png"] tag:0];
+    
+    
+    
+    
+    
     return YES;
 }
 
