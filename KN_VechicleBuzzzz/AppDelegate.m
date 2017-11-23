@@ -10,6 +10,8 @@
 #import "homeScreen_VC.h"
 #import "contactusVC.h"
 #import "loginScreen.h"
+#import "ViewProfile.h"
+#import "Brands.h"
 
 @interface AppDelegate ()
 @property homeScreen_VC * homeVC;
@@ -22,11 +24,6 @@
     // Override point for customization after application launch.
     
     [NSThread sleepForTimeInterval:2.0];
-    [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
-    // Add any custom logic here.
-    
-    
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError: &configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
@@ -34,41 +31,50 @@
     [GIDSignIn sharedInstance].delegate = self;
     UIStoryboard * mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"Google_Token"];
+   //[[NSUserDefaults standardUserDefaults]removeObjectForKey:@"used_ID"];
     
     
-    if (    [[NSUserDefaults standardUserDefaults]valueForKey:@"Google_Token"]> 0)
+    if (    [[NSUserDefaults standardUserDefaults]valueForKey:@"used_ID"]> 0)
     {
         NSLog(@"%@",[[NSUserDefaults standardUserDefaults]valueForKey:@"Google_Token"]);
+        UIStoryboard * mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController * tab = [[UITabBarController alloc]init];
         
-    UITabBarController * tab = [[UITabBarController alloc]init];
-    
-    
-    UIViewController * home = (homeScreen_VC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"homeScreen_VC"]  ;
-    home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"Home.png"] tag:0];
-    
-    
-    UIViewController * viewAll = (ViewAllProductsScreen*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
-    viewAll.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Used" image:[UIImage imageNamed:@"Menu.png"] tag:1];
-    
-    UIViewController * vehicleOffers = (vehicleOffersVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"vehicleOffersVC"];
-    vehicleOffers.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Offers" image:[UIImage imageNamed:@"Vehcile.png"] tag:2];
-    
-    UIViewController * contact = (contactusVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"contactusVC"];
-    contact.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"contact" image:[UIImage imageNamed:@"Phone.png"] tag:3];
-    
-    tab.viewControllers = [NSArray arrayWithObjects:home,viewAll,vehicleOffers,contact, nil];
-    
-//  [  tab.tabBar setBackgroundColor:[UIColor blueColor]];
-//    tab.tabBar .tintColor = [UIColor whiteColor];
-    [[UITabBar appearance]setTintColor:[UIColor whiteColor]];
-    [[UITabBar appearance]setBackgroundColor:[UIColor blueColor]];
-
-    UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:tab];
-    navigation.navigationBar.hidden = YES;
-    self.window.rootViewController = navigation;
-    [self.window makeKeyAndVisible];
-  
+        
+        UIViewController * home = (homeScreen_VC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"homeScreen_VC"]  ;
+        home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"Home.png"] tag:0];
+        
+        
+        UIViewController * brands = (Brands*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"Brands"];
+        brands.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Brands" image:[UIImage imageNamed:@"Menu.png"] tag:1];
+        
+        UIViewController * vehicleOffers = (vehicleOffersVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"vehicleOffersVC"];
+        vehicleOffers.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Offers" image:[UIImage imageNamed:@"Vehcile.png"] tag:2];
+        
+        UIViewController * viewProfile = (ViewProfile*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ViewProfile"];
+        viewProfile.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"ViewProfile" image:[UIImage imageNamed:@"Profile.png"] tag:3];
+        
+        UIViewController * contact = (contactusVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"contactusVC"];
+        contact.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"contact" image:[UIImage imageNamed:@"Phone.png"] tag:4];
+        
+        
+        [[UITabBarItem appearance] setTitleTextAttributes:@{
+                                                            NSFontAttributeName:[UIFont boldSystemFontOfSize:16]
+                                                            } forState:UIControlStateNormal];
+        
+        
+        
+        [[UITabBar appearance]setTintColor:[UIColor greenColor]];
+        [[UITabBar appearance]setBarTintColor:[UIColor blueColor]];
+        [[UITabBar appearance]setUnselectedItemTintColor:[UIColor whiteColor]];
+        
+        tab.viewControllers = [NSArray arrayWithObjects:home,brands,vehicleOffers,contact,viewProfile, nil];
+        UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:tab];
+        navigation.navigationBar.hidden = YES;
+        self.window.rootViewController = navigation;
+        [self.window makeKeyAndVisible];
+        
+        
     
     }
     else
@@ -162,17 +168,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
             _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"KN_VechicleBuzzzz"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                     
-                    /*
-                     Typical reasons for an error here include:
-                     * The parent directory does not exist, cannot be created, or disallows writing.
-                     * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                     * The device is out of space.
-                     * The store could not be migrated to the current model version.
-                     Check the error message to determine what the actual problem was.
-                    */
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }
@@ -195,5 +191,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
         abort();
     }
 }
+
+
 
 @end

@@ -7,11 +7,13 @@
 #import "ViewAllProductsScreen.h"
 #import "contactusVC.h"
 #import "vehicleOffersVC.h"
+#import "ViewProfile.h"
+#import "Brands.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #define GoogleClientID @"395662728779-vl3vi60mbpm2hrstc8ef9bij4d99ou1i.apps.googleusercontent.com"
-@interface loginScreen ()<UITextFieldDelegate  ,GIDSignInUIDelegate>
+@interface loginScreen ()<UITextFieldDelegate  ,GIDSignInUIDelegate,GIDSignInDelegate>
 
 
 
@@ -228,16 +230,13 @@
 }
 - (IBAction)faceBookLogin:(UIButton *)sender
 {
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    // Optional: Place the button in the center of your view.
-    loginButton.center = self.view.center;
-   // [self.view addSubview:loginButton];
-    if ([FBSDKAccessToken currentAccessToken])
-    {
-        // User is logged in, do work such as go to next view controller.
-        NSLog(@"%@",[FBSDKAccessToken currentAccessToken]);
-    }
     
+    
+}
+- (IBAction)skipButton:(UIButton *)sender
+{
+    
+    [self tabBarFUNC];
 }
 - (IBAction)googleLogin:(UIButton *)sender
 {
@@ -256,42 +255,48 @@ didSignInForUser:(GIDGoogleUser *)user
 {
     // Perform any operations on signed in user here.
     NSString *userId = user.userID;
-    NSString *idToken = user.authentication.idToken;
-    [[NSUserDefaults standardUserDefaults] setObject:idToken forKey:@"Google_Token"];
+    [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"used_ID"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *idToken = user.authentication.idToken;
+   // [[NSUserDefaults standardUserDefaults] setObject:idToken forKey:@"Google_Token"];
+   // [[NSUserDefaults standardUserDefaults] synchronize];
     NSString *fullName = user.profile.name;
     NSString *email = user.profile.email;
     
     NSLog(@"%@  .... %@  ... %@ ...  %@",userId,idToken,fullName,email);
     
     
-    NSString * googleURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/login";
+    
 
     
         if (userId.length>0)
         {
+            
+            
             NSDictionary *params  = @{@"action":@"google_account",@"name":fullName,@"email":email ,@"social_id":userId};
             
-            [self.manager POST:googleURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
             
-            {
-                NSLog(@"%@",responseObject);
-                
-//                NSString * storyboardName = @"Main";
-//                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-//                homeScreen_VC * vc = (homeScreen_VC*)[storyboard instantiateViewControllerWithIdentifier:@"homeScreen_VC"];
-//                [self .navigationController pushViewController:vc animated:YES];
+            [self loginWebServiceCall:@"user_account" andParams:params];
 
-                [self tabBarFUNC];
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                
-            }];
-    
             
         }
     
     
+}
+
+-(void)loginWebServiceCall:(NSString*)action andParams:(NSDictionary*)params
+{
+    NSString * googleURL = @"http://www.vehiclebuzzzz.com/index.php/JsonController/login";
+    [self.manager POST:googleURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+     
+     {
+         NSLog(@"%@",responseObject);
+         
+         [self tabBarFUNC];
+         
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         
+     }];
 }
 
 // Present a view that prompts the user to sign in with Google
@@ -307,6 +312,7 @@ presentViewController:(UIViewController *)viewController
 dismissViewController:(UIViewController *)viewController
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 -(void)tabBarFUNC
@@ -320,25 +326,34 @@ dismissViewController:(UIViewController *)viewController
     home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"Home.png"] tag:0];
     
     
-    UIViewController * viewAll = (ViewAllProductsScreen*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ViewAllProductsScreen"];
-    viewAll.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Used" image:[UIImage imageNamed:@"Menu.png"] tag:1];
+    UIViewController * brands = (Brands*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"Brands"];
+    brands.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Brands" image:[UIImage imageNamed:@"Menu.png"] tag:1];
     
     UIViewController * vehicleOffers = (vehicleOffersVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"vehicleOffersVC"];
     vehicleOffers.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Offers" image:[UIImage imageNamed:@"Vehcile.png"] tag:2];
     
+    UIViewController * viewProfile = (ViewProfile*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ViewProfile"];
+    viewProfile.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"ViewProfile" image:[UIImage imageNamed:@"Profile.png"] tag:3];
+    
     UIViewController * contact = (contactusVC*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"contactusVC"];
-    contact.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"contact" image:[UIImage imageNamed:@"Phone.png"] tag:3];
+    contact.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"contact" image:[UIImage imageNamed:@"Phone.png"] tag:4];
     
-    tab.viewControllers = [NSArray arrayWithObjects:home,viewAll,vehicleOffers,contact, nil];
     
-    //  [  tab.tabBar setBackgroundColor:[UIColor blueColor]];
-    //    tab.tabBar .tintColor = [UIColor whiteColor];
-    [[UITabBar appearance]setTintColor:[UIColor whiteColor]];
-    [[UITabBar appearance]setBackgroundColor:[UIColor blueColor]];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{
+                                                        NSFontAttributeName:[UIFont boldSystemFontOfSize:16]
+                                                        } forState:UIControlStateNormal];
     
+    
+    
+    [[UITabBar appearance]setTintColor:[UIColor greenColor]];
+    [[UITabBar appearance]setBarTintColor:[UIColor blueColor]];
+    [[UITabBar appearance]setUnselectedItemTintColor:[UIColor whiteColor]];
+    
+    tab.viewControllers = [NSArray arrayWithObjects:home,brands,vehicleOffers,contact,viewProfile, nil];
     UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:tab];
     navigation.navigationBar.hidden = YES;
-    self.window.rootViewController = navigation;
+   // self.window.rootViewController = tab;
+    
     [self.window makeKeyAndVisible];
     
     [self.navigationController pushViewController:tab animated:YES];
