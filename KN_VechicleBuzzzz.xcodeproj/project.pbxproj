@@ -158,6 +158,7 @@
 		0FAA59431F850DEA00788A45 /* customTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTableCell.m; sourceTree = "<group>"; };
 		0FAA59471F850F6F00788A45 /* customCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customCollectionCell.h; sourceTree = "<group>"; };
 		0FAA59481F850F6F00788A45 /* customCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customCollectionCell.m; sourceTree = "<group>"; };
+		0FB086A01FCC175B00E1BB21 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0FBE48031F74214000CF6DE0 /* AFNETWORK_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNETWORK_model.h; sourceTree = "<group>"; };
 		0FBE48041F74214000CF6DE0 /* AFNETWORK_model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNETWORK_model.m; sourceTree = "<group>"; };
 		0FD6B2BE1FB1935B004DA7CD /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
@@ -357,6 +358,7 @@
 		97722B4DD093C8DF5BC25C32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FB086A01FCC175B00E1BB21 /* MessageUI.framework */,
 				0F98B9761F891C7E00ECD209 /* QuartzCore.framework */,
 				4553DA0EE532E04168F98F6E /* libPods-KN_VechicleBuzzzz.a */,
 			);

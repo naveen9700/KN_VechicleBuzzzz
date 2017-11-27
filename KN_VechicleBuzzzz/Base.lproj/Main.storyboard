@@ -2070,6 +2070,9 @@
                                                 <state key="normal" title="SEND">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendBTN:" destination="ShI-wz-j5z" eventType="touchUpInside" id="7xe-fg-Id6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-ud-RmX">
                                                 <rect key="frame" x="8" y="466" width="304" height="30"/>
@@ -2080,6 +2083,9 @@
                                                 <state key="normal" title="040-66776659">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="contactBTN:" destination="ShI-wz-j5z" eventType="touchUpInside" id="zrQ-ae-b4q"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbA-nF-NVO">
                                                 <rect key="frame" x="8" y="446" width="304" height="20"/>
@@ -2145,6 +2151,12 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="EmailTFT" destination="9qm-p0-n91" id="Sah-4w-WY6"/>
+                        <outlet property="mobileTFT" destination="PF4-G5-KVE" id="hAT-fZ-qwO"/>
+                        <outlet property="textviewTFT" destination="8sG-cx-d8v" id="Rxl-io-Vgy"/>
+                        <outlet property="userNameTFT" destination="b0k-Pu-KrM" id="kUC-0N-GEc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSA-AA-eB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
