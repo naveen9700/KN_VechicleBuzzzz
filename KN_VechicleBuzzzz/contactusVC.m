@@ -22,7 +22,7 @@
 
     self.EmailTFT.delegate =self;
 
-    // Do any additional setup after loading the view.
+    
 }
 
 -(void)alertMessage:(NSString*)message
@@ -218,8 +218,7 @@
 
 -(void)mailComposer
 {
-    if ([MFMailComposeViewController  canSendMail])
-    {
+    
         NSString *HiStr = @"Hi VehicleBuzzzz";
         NSString *usernameStr = @"UserName :";
         NSString *userName = self.userNameTFT.text;
@@ -242,7 +241,7 @@
         NSArray *myStrings = [[NSArray alloc] initWithObjects:HiStr, customerName, customerEmailid, customerMobileNO,customerMessage,thanqyoustr, nil];
         NSString *joinedString = [myStrings componentsJoinedByString:@"\n\n"];
         NSString *messageBody = joinedString;
-        NSArray *toRecipents = [NSArray arrayWithObject:@"contact@vehiclebuzz.com"];
+        NSArray *toRecipents = [NSArray arrayWithObject:@"naveen.ios9700@gmail.com"];
         MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
         mc.mailComposeDelegate = self;
         [mc setSubject:emailTitle];
@@ -251,7 +250,7 @@
         
         // Present mail view controller on screen
         [self presentViewController:mc animated:YES completion:NULL];
-    }
+    
 }
 
 
@@ -275,5 +274,6 @@
 
 -(IBAction)contactBTN:(UIButton *)sender
 {
+    
 }
 @end

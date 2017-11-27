@@ -29,9 +29,11 @@
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
     [GIDSignIn sharedInstance].delegate = self;
+  
+    
     UIStoryboard * mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-   //[[NSUserDefaults standardUserDefaults]removeObjectForKey:@"used_ID"];
+   [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"used_ID"];
     
     
     if (    [[NSUserDefaults standardUserDefaults]valueForKey:@"used_ID"]> 0)
@@ -85,7 +87,7 @@
         UIViewController * login = (loginScreen*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"loginScreen"];
         navi.navigationBar.hidden = YES;
         self.window.rootViewController = navi;
-        [navi pushViewController:login animated:YES];
+       [navi pushViewController:login animated:YES];
         
         
     }
@@ -185,8 +187,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }

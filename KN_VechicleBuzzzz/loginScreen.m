@@ -95,17 +95,7 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     
-//    if (textField==self.pswrdTFObject)
-//    {
-//        if (self.userTFObject.text.length==0)
-//        {
-//            [self alertMessage:@"Enter UserName First !"];
-//            return YES;
-//        }
-//    }
-//    else{
-//        return YES;
-//    }
+ 
     return YES;
 }
 
@@ -350,10 +340,9 @@ dismissViewController:(UIViewController *)viewController
     [[UITabBar appearance]setUnselectedItemTintColor:[UIColor whiteColor]];
     
     tab.viewControllers = [NSArray arrayWithObjects:home,brands,vehicleOffers,contact,viewProfile, nil];
-    UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:tab];
-    navigation.navigationBar.hidden = YES;
-   // self.window.rootViewController = tab;
-    
+//    UINavigationController * navigation = [[UINavigationController alloc]initWithRootViewController:tab];
+//    navigation.navigationBar.hidden = YES;
+//    
     [self.window makeKeyAndVisible];
     
     [self.navigationController pushViewController:tab animated:YES];
