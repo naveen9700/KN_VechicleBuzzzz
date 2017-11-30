@@ -53,6 +53,8 @@
 		0FE141361FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
 		0FE141371FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
 		0FE141381FC42E5E00C5DBA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */; };
+		0FE917AD1FCFFEB600B4A63B /* BrandsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE917AC1FCFFEB600B4A63B /* BrandsCollectionViewCell.m */; };
+		0FE917B31FD0151800B4A63B /* BrandsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE917B21FD0151800B4A63B /* BrandsTableViewCell.m */; };
 		0FEC1CA01FC5360E0054AE37 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9B1FC5360D0054AE37 /* Profile.png */; };
 		0FEC1CA11FC5360E0054AE37 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9C1FC5360E0054AE37 /* Home.png */; };
 		0FEC1CA21FC5360E0054AE37 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEC1C9D1FC5360E0054AE37 /* Menu.png */; };
@@ -182,6 +184,10 @@
 		0FD6B2D11FB1935D004DA7CD /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		0FD6B2D21FB1935D004DA7CD /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 		0FE141351FC42E5E00C5DBA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0FE917AB1FCFFEB600B4A63B /* BrandsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrandsCollectionViewCell.h; sourceTree = "<group>"; };
+		0FE917AC1FCFFEB600B4A63B /* BrandsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrandsCollectionViewCell.m; sourceTree = "<group>"; };
+		0FE917B11FD0151800B4A63B /* BrandsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrandsTableViewCell.h; sourceTree = "<group>"; };
+		0FE917B21FD0151800B4A63B /* BrandsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrandsTableViewCell.m; sourceTree = "<group>"; };
 		0FEC1C9B1FC5360D0054AE37 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = "<group>"; };
 		0FEC1C9C1FC5360E0054AE37 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		0FEC1C9D1FC5360E0054AE37 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
@@ -294,8 +300,12 @@
 				0FEC1CA91FC53A420054AE37 /* vehicleOffersVC.m */,
 				0F11C2691FC6900B00ACDEC7 /* Brands.h */,
 				0F11C26A1FC6900B00ACDEC7 /* Brands.m */,
+				0FE917B11FD0151800B4A63B /* BrandsTableViewCell.h */,
+				0FE917B21FD0151800B4A63B /* BrandsTableViewCell.m */,
 				0F11C26C1FC6904400ACDEC7 /* ViewProfile.h */,
 				0F11C26D1FC6904400ACDEC7 /* ViewProfile.m */,
+				0FE917AB1FCFFEB600B4A63B /* BrandsCollectionViewCell.h */,
+				0FE917AC1FCFFEB600B4A63B /* BrandsCollectionViewCell.m */,
 				0FA862E21FBEE71E003619EF /* frameWorks */,
 			);
 			name = ProductDetailsScreen;
@@ -740,6 +750,7 @@
 				9BDC011D1F6696D000E4C282 /* loginScreen.m in Sources */,
 				0F03ED781F79321F00267751 /* SRCarouselView.m in Sources */,
 				0FEC1CAA1FC53A420054AE37 /* vehicleOffersVC.m in Sources */,
+				0FE917B31FD0151800B4A63B /* BrandsTableViewCell.m in Sources */,
 				9BDC00E71F6689C000E4C282 /* ViewController.m in Sources */,
 				9BDC00E41F6689C000E4C282 /* AppDelegate.m in Sources */,
 				0FD6B2D51FB1935D004DA7CD /* TAAnimatedDotView.m in Sources */,
@@ -754,6 +765,7 @@
 				0F02E6491FA0BD8100182100 /* SingleProductDetailsScreen.m in Sources */,
 				0FD6B2D31FB1935D004DA7CD /* TADotView.m in Sources */,
 				0F02E6461FA08F1E00182100 /* viewAllTableViewCell.m in Sources */,
+				0FE917AD1FCFFEB600B4A63B /* BrandsCollectionViewCell.m in Sources */,
 				0F93B3101F922155004A11F7 /* ViewAllProductsScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

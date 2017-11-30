@@ -7,31 +7,132 @@
 //
 
 #import "Brands.h"
+#import "AFHTTPSessionManager.h"
+#import "UIImageView+AFNetworking.h"
+#import "BrandsTableViewCell.h"
 
 @interface Brands ()
-
+{
+    AFHTTPSessionManager * manager;
+    NSMutableArray * brandsArr;
+    NSMutableArray * singleBrandArr;
+    NSString * selectedBrand;
+}
 @end
 
 @implementation Brands
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.brandsTable.hidden = YES;
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+     manager= [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    [manager GET:@"http://www.vehiclebuzzzz.com/index.php/JsonController/brand" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
+        
+        brandsArr = responseObject;
+        [self.collectionOBJ reloadData];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+    
+    
+    
+    
+}
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    
+    return 1;
+    
+}
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    
+    return [[brandsArr valueForKey:@"brand"]count];
+    
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BrandsCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BrandsCollectionViewCell" forIndexPath:indexPath];
+    
+    
+    NSString *url_Img1 = @"http://vehiclebuzzzz.com/";
+    NSString *url_Img2 = [[[brandsArr valueForKey:@"brand"]objectAtIndex:indexPath.row]valueForKey:@"icon"];
+    
+    NSString *url_Img_FULL = [url_Img1 stringByAppendingPathComponent:url_Img2];
+    [cell.brandImage setImageWithURL:[NSURL URLWithString:url_Img_FULL]];
+    cell.brandNameLbl.text=[[[brandsArr valueForKey:@"brand"]objectAtIndex:indexPath.row]valueForKey:@"category"];
+    
+    cell.layer.borderWidth=1.0f;
+    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+    
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
-/*
-#pragma mark - Navigation
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    singleBrandArr = [[[brandsArr valueForKey:@"brand"]objectAtIndex:indexPath.row]valueForKey:@"brandresult"];
+    selectedBrand = [[[brandsArr valueForKey:@"brand"]objectAtIndex:indexPath.row]valueForKey:@"category"];
+    self.brandsTable.delegate = self;
+    self.brandsTable.dataSource = self;
+    self.brandsTable.hidden = NO;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.brandsTable reloadData];
+    
 }
-*/
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return 1;
+}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    return selectedBrand;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return singleBrandArr.count;
+}
+
+-(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BrandsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"BrandsTableViewCell"];
+    
+    NSString *url_Img1 = @"http://vehiclebuzzzz.com/";
+    NSString *url_Img2 = [[singleBrandArr objectAtIndex:indexPath.row] valueForKey:@"brand_logo"];
+    
+    NSString *url_Img_FULL = [url_Img1 stringByAppendingPathComponent:url_Img2];
+    [cell.brandimageTable setImageWithURL:[NSURL URLWithString:url_Img_FULL]];
+    cell.brandLBLTable.text=[[singleBrandArr objectAtIndex:indexPath.row] valueForKey:@"brand"];
+    
+    cell.layer.borderWidth=1.0f;
+    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+    return cell;
+    
+}
+
+
+
+
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrandsCollectionViewCell.h"
 
-@interface Brands : UIViewController
+@interface Brands : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionOBJ;
+@property (weak, nonatomic) IBOutlet UITableView *brandsTable;
+
 
 @end
