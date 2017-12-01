@@ -11,5 +11,6 @@
 @interface BrandsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *brandimageTable;
 @property (weak, nonatomic) IBOutlet UILabel *brandLBLTable;
+@property (weak, nonatomic) IBOutlet UIView *cellViewTable;
 
 @end

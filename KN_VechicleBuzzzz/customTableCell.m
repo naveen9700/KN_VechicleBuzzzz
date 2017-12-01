@@ -71,6 +71,8 @@
     
     ccell.layer.borderWidth=1.0f;
     ccell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    ccell.layer.cornerRadius = 5;
+    ccell.layer.masksToBounds = true;
     return ccell;
     
 }

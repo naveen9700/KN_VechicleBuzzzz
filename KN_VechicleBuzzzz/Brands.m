@@ -73,8 +73,13 @@
     [cell.brandImage setImageWithURL:[NSURL URLWithString:url_Img_FULL]];
     cell.brandNameLbl.text=[[[brandsArr valueForKey:@"brand"]objectAtIndex:indexPath.row]valueForKey:@"category"];
     
-    cell.layer.borderWidth=1.0f;
-    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+//    cell.layer.borderWidth=1.0f;
+//    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    cell.cellView.layer.borderWidth=1.0f;
+    cell.cellView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
+    cell.cellView.layer.cornerRadius = 5;
+    cell.cellView.layer.masksToBounds = true;
     
     
     return cell;
@@ -107,6 +112,25 @@
     
     return selectedBrand;
 }
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 45)] ;
+    headerView.backgroundColor = [UIColor blueColor];
+    
+    
+    UILabel * LBL = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, 70, 30)];
+    LBL.textColor = [UIColor whiteColor];
+    LBL.text = selectedBrand;
+    LBL.font = [UIFont systemFontOfSize:20];
+    [headerView addSubview:LBL];
+    
+    return headerView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+
+{
+    return 45;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -124,8 +148,13 @@
     [cell.brandimageTable setImageWithURL:[NSURL URLWithString:url_Img_FULL]];
     cell.brandLBLTable.text=[[singleBrandArr objectAtIndex:indexPath.row] valueForKey:@"brand"];
     
-    cell.layer.borderWidth=1.0f;
-    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+//    cell.layer.borderWidth=1.0f;
+//    cell.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    cell.cellViewTable.layer.cornerRadius = 5;
+    cell.cellViewTable.layer.masksToBounds = true;
+    cell.cellViewTable.layer.borderWidth=1.0f;
+    cell.cellViewTable.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    
     
     return cell;
     
